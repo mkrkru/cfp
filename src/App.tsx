@@ -6,7 +6,6 @@ import {
     Link,
     ChakraProvider,
     Flex,
-    extendTheme,
     useDisclosure
 } from "@chakra-ui/react";
 import Profile from "./components/Profile";
@@ -14,32 +13,15 @@ import AccountModal from "./components/AccountModal";
 import "@fontsource/inter";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
+import Title from "./components/Title";
 
-const theme = extendTheme({
-    fonts: {
-        heading: "Inter",
-        body: "Inter"
-    }
-});
-
-function App() {
+export default function App() {
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     // @ts-ignore
-    const final = window.ethereum
-        ? <Flex
-            flexDirection="column"
-            h="100vh"
-            bg="gray.800"
-        >
-            <Nav>
-                <Flex alignItems="center" justifyContent="center">
-                    <Profile handleOpenModal={onOpen} />
-                    <AccountModal isOpen={isOpen} onClose={onClose} />
-                </Flex>
-            </Nav>
-        </Flex>
-        : <Flex
+    if (!window.ethereum) return <ChakraProvider>
+        <Flex
             flexDirection="column"
             alignItems="center"
             justifyContent="center"
@@ -64,9 +46,24 @@ function App() {
                     isExternal>Установить <ExternalLinkIcon mx="2px"/></Link>
                 </AlertDescription>
             </Alert>
-        </Flex>;
+        </Flex>
+    </ChakraProvider>;
 
-    return <ChakraProvider theme={theme}>{final}</ChakraProvider>;
+    return <ChakraProvider>
+        <Flex
+            flexDirection="column"
+            h="100vh"
+            bg="gray.800"
+        >
+            <Nav>
+                <Flex alignItems="center" justifyContent="center">
+                    <Profile handleOpenModal={onOpen}/>
+                    <AccountModal isOpen={isOpen} onClose={onClose}/>
+                </Flex>
+            </Nav>
+
+            <Flex alignItems="center" justifyContent="center" marginTop="35vh"><Title /></Flex>
+        </Flex>
+        <div style={{ backgroundColor: "#48597A" }}><Footer/></div>
+    </ChakraProvider>;
 }
-
-export default App;
