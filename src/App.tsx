@@ -62,7 +62,9 @@ export default function App() {
                 </Flex>
             </Nav>
 
-            <Flex alignItems="center" justifyContent="center" marginTop="35vh"><Title /></Flex>
+            <Flex alignItems="center" justifyContent="center" marginTop="35vh">
+                <Title />
+            </Flex>
         </Flex>
         <div style={{ backgroundColor: "#48597A" }}><Footer/></div>
     </ChakraProvider>;

@@ -7,13 +7,14 @@ interface ProfileProps {
     handleOpenModal: any;
 };
 
-export default function Profile({ handleOpenModal }: ProfileProps) {
-    const { activateBrowserWallet, account } = useEthers();
+export default function Profile({handleOpenModal}: ProfileProps) {
+    const { activateBrowserWallet, account, deactivate } = useEthers();
     const etherBalance = useEtherBalance(account);
-    const handleConnectWallet = () => activateBrowserWallet();
-    const { deactivate } = useEthers();
 
-    return account ? (
+    const handleDisconnectWallet = () => deactivate();
+    const handleConnectWallet = () => activateBrowserWallet();
+
+    return account ?
         <Box
             display="flex"
             alignItems="center"
@@ -65,13 +66,12 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
                     borderColor: "blue.300",
                     textDecoration: "none"
                 }}
-                onClick={deactivate}
+                onClick={handleDisconnectWallet}
             >
                 Выйти
             </Button>
         </Box>
-    ) : (
-        <Button
+        : <Button
             onClick={handleConnectWallet}
             bg="blue.800"
             color="blue.300"
@@ -89,6 +89,5 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
             }}
         >
             Войти
-        </Button>
-    );
+        </Button>;
 }

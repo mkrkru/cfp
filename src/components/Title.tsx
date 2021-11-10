@@ -8,11 +8,12 @@ function getRandomColor() {
 
 export default function Title() {
     const [color, setColor] = useState(getRandomColor());
-    setInterval(() => {
-        setColor(getRandomColor());
-    }, 1000);
+    setInterval(() => setColor(getRandomColor()), 3000);
 
-    return <pre style={{ color: color }}>{
+    return <pre style={{
+        color: color,
+        transition: "all .3s ease"
+    }}>{
 `███╗  ██╗███████╗████████╗   █████╗ ██████╗ ██████╗
 ████╗ ██║██╔════╝╚══██╔══╝  ██╔══██╗██╔══██╗██╔══██╗
 ██╔██╗██║█████╗     ██║     ███████║██████╔╝██████╔╝
