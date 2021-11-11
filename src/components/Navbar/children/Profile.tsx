@@ -5,7 +5,7 @@ import Identicon from "./Identicon";
 
 interface ProfileProps {
     handleOpenModal: any;
-};
+}
 
 export default function Profile({handleOpenModal}: ProfileProps) {
     const { activateBrowserWallet, account, deactivate } = useEthers();
