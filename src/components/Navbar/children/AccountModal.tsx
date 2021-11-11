@@ -21,7 +21,7 @@ interface AccountModalProps {
     onClose: any;
 };
 
-export default function AccountModal({isOpen, onClose}: AccountModalProps) {
+export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
     const { account } = useEthers();
     // eslint-disable-next-line
     const [transactions] = useState(useTransactions());

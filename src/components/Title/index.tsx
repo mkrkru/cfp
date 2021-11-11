@@ -12,7 +12,9 @@ export function Title() {
 
     return <pre style={{
         color: color,
-        transition: "all .3s ease"
+        transition: "all .3s ease",
+        marginTop: "10vh",
+        marginBottom: "30vh"
     }}>{
 ` █████╗ ██████╗ ██╗   ██╗██████╗ ████████╗ █████╗ 
 ██╔══██╗██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██╔══██╗

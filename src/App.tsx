@@ -7,8 +7,7 @@ import {
     SimpleGrid,
     Divider
 } from "@chakra-ui/react";
-import { ArcherContainer, ArcherElement } from 'react-archer';
-import { Navbar, Footer, NoWallet, Title } from "./components";
+import { Navbar, Footer, NoWallet, Title, RoadMap } from "./components";
 import FirstImage from "./public/first.png";
 import Nft1 from "./public/nft1.png";
 import Nft2 from "./public/nft2.png";
@@ -34,7 +33,6 @@ export default function App() {
 
         <VStack spacing={24} py={24} bg="gray.800" justify="center">
             <Title />
-            <Divide />
 
             <img alt="" style={{ width: "589px", height: "334px" }} src={FirstImage} />
             <Text align="center" color="white" fontSize="2xl" px={40}>
@@ -55,25 +53,7 @@ export default function App() {
             </Text>
             <Divide />
 
-            <Heading color="white" as="h2">Road Map</Heading>
-            <ArcherContainer>
-                <SimpleGrid columns={3} spacing={10}>
-                    <ArcherElement id="element1">
-                        <div style={{ marginBottom: "50px", width: "100px", height: "100px", backgroundColor: "#00ff00" }}>Element 3</div>
-                    </ArcherElement>
-
-                    <ArcherElement
-                        id="element2"
-                        relations={[{
-                            targetId: 'element1',
-                            targetAnchor: 'bottom',
-                            sourceAnchor: 'top',
-                        }]}
-                    >
-                        <div style={{ width: "100px", height: "100px", backgroundColor: "#ff0000" }}>Element 4</div>
-                    </ArcherElement>
-                </SimpleGrid>
-            </ArcherContainer>
+            <RoadMap />
         </VStack>
 
         <Footer />
