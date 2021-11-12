@@ -1,29 +1,29 @@
 import {
-    ChakraProvider,
     useDisclosure,
+    ChakraProvider,
     VStack,
     Text,
     Heading,
-    SimpleGrid,
     Divider
 } from "@chakra-ui/react";
-import { Navbar, Footer, NoWallet, Title, RoadMap } from "./components";
-import FirstImage from "./public/first.png";
-import Nft1 from "./public/nft1.png";
-import Nft2 from "./public/nft2.png";
+import { Navbar, Footer, NoWallet, Title, RoadMap, NftCarousel } from "../components/Laptop";
+import { useEffect } from "react";
+import FirstImage from "../public/first.png";
 
-export default function App() {
+export default function LaptopApp() {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const nftBigStyle = {
-        borderRadius: "6px",
-        width: "354px",
-        height: "354px"
-    };
+
     const Divide = () => <>
         <br />
         <Divider orientation="horizontal" w="80vh" />
         <br />
     </>;
+
+    useEffect(() => {
+        const Titles = ["CRYPTO", "FRYING", "PANS"];
+        const randomorg = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+        setInterval(() => document.title = Titles[randomorg(0, Titles.length - 1)], 3000);
+    }, []);
 
     // @ts-ignore
     if (!window.ethereum) return <NoWallet />;
@@ -41,11 +41,8 @@ export default function App() {
             </Text>
             <Divide />
 
-            <Heading color="white" as="h3">Who said that only food is cooked in a frying pan?</Heading>
-            <SimpleGrid columns={3} spacing={10}>
-                <img alt="" style={nftBigStyle} src={Nft1} />
-                <img alt="" style={nftBigStyle} src={Nft2} />
-            </SimpleGrid>
+            <Heading fontStyle="italic" color="white" as="h3">Who said that only food is cooked in a frying pan?</Heading>
+            <NftCarousel />
             <br />
 
             <Text align="center" color="white" fontSize="2xl" px={40}>
@@ -53,6 +50,7 @@ export default function App() {
             </Text>
             <Divide />
 
+            <Heading fontStyle="italic"  color="white" as="h2">Road Map</Heading>
             <RoadMap />
         </VStack>
 

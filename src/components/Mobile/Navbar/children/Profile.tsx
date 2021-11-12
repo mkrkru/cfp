@@ -2,6 +2,7 @@ import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import Identicon from "./Identicon";
+import Icon from "../../../../public/icon.png";
 
 interface ProfileProps {
     handleOpenModal: any;
@@ -68,14 +69,16 @@ export default function Profile({handleOpenModal}: ProfileProps) {
                 }}
                 onClick={handleDisconnectWallet}
             >
-                Выйти
+                Logout
             </Button>
         </Box>
         : <Button
             onClick={handleConnectWallet}
+            h="6vh"
+            w="12vh"
             bg="blue.800"
             color="blue.300"
-            fontSize="lg"
+            fontSize="40px"
             fontWeight="medium"
             borderRadius="xl"
             border="1px solid transparent"
@@ -88,6 +91,6 @@ export default function Profile({handleOpenModal}: ProfileProps) {
                 borderColor: "blue.700",
             }}
         >
-            Войти
+            Login <img alt="" style={{ marginLeft: "6px", width: "60px", height: "60px" }} src={Icon} />
         </Button>;
 }

@@ -12,9 +12,8 @@ import {
     Text
 } from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
-import { useEthers, useTransactions } from "@usedapp/core";
+import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
-import { useState } from "react";
 
 interface AccountModalProps {
     isOpen: any;
@@ -23,8 +22,6 @@ interface AccountModalProps {
 
 export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
     const { account } = useEthers();
-    // eslint-disable-next-line
-    const [transactions] = useState(useTransactions());
 
     return <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
         <ModalOverlay/>
@@ -95,7 +92,7 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                 borderBottomRightRadius="3xl"
                 p={6}
             >
-                <p>футер</p>
+                <Text color="gray">Crypto Frying Pans</Text>
             </ModalFooter>
         </ModalContent>
     </Modal>;
