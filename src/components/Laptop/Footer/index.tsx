@@ -10,7 +10,7 @@ export function Footer() {
                     <img alt="" src={Icon} style={{ width: "30px", height: "30px" }} />
 
                 </Stack>
-                <Text alignSelf={{ base: 'center', sm: 'start' }} color="white" fontSize="sm">
+                <Text alignSelf={{ base: 'center', sm: 'start' }} color="#9DD1F1" fontSize="sm">
                     &copy; {new Date().getFullYear()} Crypto Frying Pans
                 </Text>
             </Stack>

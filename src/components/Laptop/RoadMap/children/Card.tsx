@@ -26,8 +26,8 @@ export default function Card({ id, image, w, h, text, phase, pos }: CardProps) {
             right: pos.right ? pos.right : null
         }}
     >
-        <Heading color="white" as="h3">Phase {phase}</Heading>
-        <Text mx="5vh" mixW="40vh" maxW="50vh" color="white" fontSize="2xl">{text}</Text>
+        <Heading color="#9DD1F1" as="h3">Phase {phase}</Heading>
+        <Text mx="5vh" mixW="40vh" maxW="50vh" color="#9DD1F1" fontSize="2xl">{text}</Text>
         <img style={{ borderRadius: "6px", pointerEvents: "none", width: w / 2.7, height: h / 2.7 }} src={image} alt=""/>
     </Flex>;
 }

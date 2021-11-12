@@ -2524,6 +2524,11 @@
     "@ethersproject/properties" "^5.5.0"
     "@ethersproject/strings" "^5.5.0"
 
+"@fontsource/abeezee@^4.5.0":
+  "integrity" "sha512-uh/NSOXYG/f88D1Tgqsei6hH4mFVqt6ZWwRkreg+mR/i9U31HYrMe9XOiz9Ko0I/DTXrD/+Y3txk9ykNH/yFZQ=="
+  "resolved" "https://registry.npmjs.org/@fontsource/abeezee/-/abeezee-4.5.0.tgz"
+  "version" "4.5.0"
+
 "@fontsource/inter@^4.5.0":
   "integrity" "sha512-2efK8Ru0LkuOYrEpiHPlV02YkTdIKGbezlxVNeA8/3c+tNt7P2aQPuiYYkVy7N4GA5LWSUVcLL/91MpCIjinOw=="
   "resolved" "https://registry.npmjs.org/@fontsource/inter/-/inter-4.5.0.tgz"

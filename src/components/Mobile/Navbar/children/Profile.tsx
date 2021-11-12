@@ -24,7 +24,7 @@ export default function Profile({handleOpenModal}: ProfileProps) {
             py="0"
         >
             <Box px="3">
-                <Text color="white" fontSize="md">
+                <Text color="#9DD1F1" fontSize="md">
                     {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
                 </Text>
             </Box>
@@ -43,7 +43,7 @@ export default function Profile({handleOpenModal}: ProfileProps) {
                 px={3}
                 height="38px"
             >
-                <Text color="white" fontSize="md" fontWeight="medium" mr="2">
+                <Text color="#9DD1F1" fontSize="md" fontWeight="medium" mr="2">
                     {account &&
                     `${account.slice(0, 6)}...${account.slice(
                         account.length - 4,

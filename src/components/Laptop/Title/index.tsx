@@ -7,8 +7,8 @@ function getRandomColor() {
 }
 
 export function Title() {
-    const [color, setColor] = useState(getRandomColor());
-    setInterval(() => setColor(getRandomColor()), 3000);
+    const [color, setColor] = useState("#9DD1F1");
+    setInterval(() => setColor(getRandomColor()), 4000);
 
     return <pre style={{
         color: color,
