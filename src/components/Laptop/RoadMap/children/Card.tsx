@@ -12,6 +12,7 @@ interface CardProps {
 
 export default function Card({ id, image, w, h, text, phase, pos }: CardProps) {
     return <Flex
+        className="revealClass"
         id={id}
         display="flex"
         justifyContent="space-between"

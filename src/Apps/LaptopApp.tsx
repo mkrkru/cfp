@@ -10,6 +10,7 @@ import {
 import { Navbar, Footer, NoWallet, Title, RoadMap, NftCarousel } from "../components/Laptop";
 import { useEffect } from "react";
 import FirstImage from "../public/first.png";
+import ScrollReveal from "scrollreveal";
 import "@fontsource/abeezee";
 
 export default function LaptopApp() {
@@ -22,6 +23,8 @@ export default function LaptopApp() {
     </>;
 
     useEffect(() => {
+        ScrollReveal().reveal('.revealClass', { delay: 300 });
+
         const Titles = ["CRYPTO", "FRYING", "PANS"];
         const randomorg = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
         setInterval(() => document.title = Titles[randomorg(0, Titles.length - 1)], 3000);
@@ -36,8 +39,8 @@ export default function LaptopApp() {
         <VStack spacing={24} py={24} bg="gray.800" justify="center">
             <Title />
 
-            <img alt="" style={{ borderRadius: "2px" }} src={FirstImage} />
-            <Text align="center" color="#9DD1F1" fontSize="2xl" px={40}>
+            <img alt="" className="revealClass" style={{ width: "1000px", height: "470px", borderRadius: "2px" }} src={FirstImage} />
+            <Text className="revealClass" align="center" color="#9DD1F1" fontSize="2xl" px={40}>
                 Whether it's an experienced chef looking to delight a client with an extravagant dish or a newbie looking for homemade food, cooking a good meal starts with choosing the right dishes.
                 That is why the production company REALPRESS, together with Crypto Frying Pans, invites you to become a part of a unique project, where you can watch the development of the enterprise in real time and receive your rewards from this.
             </Text>
