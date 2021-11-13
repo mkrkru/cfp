@@ -37,9 +37,9 @@
     "@ethersproject/contracts": "5.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "mstart": "react-scripts start",
     "build": "react-scripts build",
-    "hstart": "react-scripts --optimize_for_size --max_old_space_size=460 --gc_interval=100 start"
+    "start": "react-scripts --optimize_for_size --max_old_space_size=460 --gc_interval=100 start"
   },
   "eslintConfig": {
     "extends": [
