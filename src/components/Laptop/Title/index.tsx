@@ -1,4 +1,5 @@
 import { useState } from "react";
+import config from "../../../config";
 
 function getRandomColor() {
     let res = '#';
@@ -7,7 +8,7 @@ function getRandomColor() {
 }
 
 export function Title() {
-    const [color, setColor] = useState("#9DD1F1");
+    const [color, setColor] = useState(config.colors.lighter);
     setInterval(() => setColor(getRandomColor()), 4000);
 
     return <pre style={{

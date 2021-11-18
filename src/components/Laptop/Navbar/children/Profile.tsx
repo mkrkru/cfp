@@ -1,6 +1,7 @@
-import { Button, Box, Text } from "@chakra-ui/react";
+import { Button, Box, Text, useToast, Spinner } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
+import config from "../../../../config";
 import Identicon from "./Identicon";
 import Icon from "../../../../public/icon.png";
 
@@ -8,42 +9,50 @@ interface ProfileProps {
     handleOpenModal: any;
 }
 
-export default function Profile({handleOpenModal}: ProfileProps) {
-    const { activateBrowserWallet, account, deactivate } = useEthers();
+export default function Profile({ handleOpenModal }: ProfileProps) {
+    const { activateBrowserWallet, account } = useEthers();
+    const toast = useToast();
     const etherBalance = useEtherBalance(account);
 
-    const handleDisconnectWallet = () => deactivate();
-    const handleConnectWallet = () => activateBrowserWallet();
+    function handleConnectWallet() {
+        // @ts-ignore
+        window.ethereum
+            ? activateBrowserWallet()
+            : toast({
+                position: "bottom-right",
+                title: "Metamask not installed!",
+                description: `To install Metamask extension close this message.`,
+                status: "error",
+                duration: 9000,
+                isClosable: true,
+                onCloseComplete: () => window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn", "_blkkas")
+            });
+    };
 
     return account ?
         <Box
             display="flex"
             alignItems="center"
-            background="gray.700"
+            pl={3}
+            pr={0.5}
+            background={config.colors.medium}
             borderRadius="xl"
-            py="0"
         >
-            <Box px="3">
-                <Text color="#9DD1F1" fontSize="md">
-                    {etherBalance && parseFloat(formatEther(etherBalance)).toFixed(3)} ETH
-                </Text>
-            </Box>
+            <Text mr={2} color={config.colors.lighter} fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color={config.colors.lighter} />}</Text>
             <Button
                 onClick={handleOpenModal}
-                bg="gray.800"
+                bg={config.colors.dark}
                 border="1px solid transparent"
                 _hover={{
                     border: "1px",
                     borderStyle: "solid",
-                    borderColor: "blue.400",
-                    backgroundColor: "gray.700",
+                    borderColor: config.colors.blue,
+                    backgroundColor: config.colors.medium
                 }}
                 borderRadius="xl"
-                m="1px"
-                px={3}
                 height="38px"
             >
-                <Text color="#9DD1F1" fontSize="md" fontWeight="medium" mr="2">
+                <Text color={config.colors.lighter} fontSize="md" fontWeight="medium" mr="2">
                     {account &&
                     `${account.slice(0, 6)}...${account.slice(
                         account.length - 4,
@@ -52,41 +61,18 @@ export default function Profile({handleOpenModal}: ProfileProps) {
                 </Text>
                 <Identicon/>
             </Button>
-            <Button
-                marginLeft="10px"
-                variant="outline"
-                borderColor="blue.800"
-                borderRadius="xl"
-                color="blue.500"
-                fontSize="16px"
-                fontWeight="normal"
-                px={5}
-                height="34px"
-                _hover={{
-                    background: "none",
-                    borderColor: "blue.300",
-                    textDecoration: "none"
-                }}
-                onClick={handleDisconnectWallet}
-            >
-                Logout
-            </Button>
         </Box>
         : <Button
             onClick={handleConnectWallet}
-            bg="blue.800"
-            color="blue.300"
+            bg={config.colors.medium}
+            color={config.colors.lighter}
             fontSize="lg"
             fontWeight="medium"
             borderRadius="xl"
             border="1px solid transparent"
             _hover={{
-                borderColor: "blue.700",
-                color: "blue.400",
-            }}
-            _active={{
-                backgroundColor: "blue.800",
-                borderColor: "blue.700",
+                borderColor: config.colors.blue,
+                color: config.colors.blue
             }}
         >
             Login with Metamask <img alt="" style={{ marginLeft: "6px", width: "20px", height: "20px" }} src={Icon} />

@@ -9,11 +9,14 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-    Text
+    Text,
+    Tooltip
 } from "@chakra-ui/react";
 import { CopyIcon } from "@chakra-ui/icons";
 import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
+import config from "../../../../config";
+import { useState } from "react";
 
 interface AccountModalProps {
     isOpen: any;
@@ -21,65 +24,89 @@ interface AccountModalProps {
 };
 
 export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
-    const { account } = useEthers();
+    const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
+    const { account, deactivate } = useEthers();
+    const handleDisconnectWallet = () => deactivate();
+    const handleShowCopiedTooltip = () => {
+        setShowCopiedTooltip(true);
+        setTimeout(() => setShowCopiedTooltip(false), 1000);
+    };
 
     return <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
-        <ModalOverlay/>
+        <ModalOverlay />
         <ModalContent
-            background="gray.900"
+            background={config.colors.darker}
             border="1px"
             borderStyle="solid"
-            borderColor="gray.700"
+            borderColor={config.colors.medium}
             borderRadius="3xl"
         >
-            <ModalHeader color="#9DD1F1" px={4} fontSize="lg" fontWeight="medium">
-                Аккаунт
+            <ModalHeader color={config.colors.lighter} px={4} fontSize="lg" fontWeight="medium">
+                Account
             </ModalHeader>
             <ModalCloseButton
-                color="#9DD1F1"
+                color={config.colors.lighter}
                 fontSize="sm"
-                _hover={{color: "whiteAlpha.700"}}
+                _hover={{ color: config.colors.gray }}
             />
             <ModalBody pt={0} px={4}>
                 <Box
                     borderRadius="3xl"
                     border="1px"
                     borderStyle="solid"
-                    borderColor="gray.600"
+                    borderColor={config.colors.gray}
                     px={5}
                     pt={4}
                     pb={2}
                     mb={3}
                 >
-                    <Flex alignItems="center" mt={2} mb={4} lineHeight={1}>
-                        <Identicon/>
-                        <Text
-                            color="#9DD1F1"
-                            fontSize="xl"
-                            fontWeight="semibold"
-                            ml="2"
-                            lineHeight="1.1"
+                    <Flex alignItems="center" justifyContent="space-between" mt={2} mb={4} lineHeight={1}>
+                        <Flex>
+                            <Identicon />
+                            <Text
+                                color={config.colors.lighter}
+                                fontSize="xl"
+                                fontWeight="semibold"
+                                ml="2"
+                                lineHeight="1.1"
+                            >
+                                {account &&
+                                `${account.slice(0, 6)}...${account.slice(
+                                    account.length - 4,
+                                    account.length
+                                )}`}
+                            </Text>
+                        </Flex>
+                        <Button
+                            variant="outline"
+                            borderColor={config.colors.dark}
+                            borderRadius="xl"
+                            color={config.colors.blue}
+                            fontSize="16px"
+                            fontWeight="normal"
+                            height="34px"
+                            _hover={{ borderColor: config.colors.blue }}
+                            onClick={handleDisconnectWallet}
                         >
-                            {account &&
-                            `${account.slice(0, 6)}...${account.slice(
-                                account.length - 4,
-                                account.length
-                            )}`}
-                        </Text>
+                            Logout
+                        </Button>
                     </Flex>
                     <Flex alignContent="center" m={3}>
                         <Button
                             variant="link"
-                            color="gray.400"
+                            color={config.colors.gray}
                             fontWeight="normal"
                             fontSize="sm"
                             _hover={{
                                 textDecoration: "none",
-                                color: "whiteAlpha.800",
+                                color: config.colors.lighter
                             }}
+                            onClick={handleShowCopiedTooltip}
                         >
-                            <CopyIcon mr={1}/>
-                            Скопировать адрес
+                            <CopyIcon mr={1} />
+                            <Tooltip hasArrow isOpen={showCopiedTooltip} label="Copied!" bg={config.colors.light}>
+                                Copy address
+                            </Tooltip>
                         </Button>
                     </Flex>
                 </Box>
@@ -87,7 +114,7 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
 
             <ModalFooter
                 justifyContent="end"
-                background="gray.700"
+                background={config.colors.medium}
                 borderBottomLeftRadius="3xl"
                 borderBottomRightRadius="3xl"
                 p={6}

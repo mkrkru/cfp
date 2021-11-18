@@ -1,16 +1,30 @@
-import { Box, Stack } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/layout';
+import config from "../../../config";
 import Icon from "../../../public/icon.png";
 
 export function Footer() {
-    return <Box as="footer" bg="#48597A" py={10} px="20vh">
-            <Stack>
-                <Stack direction="row" spacing="4" align="center" justify="space-between">
-                    <img alt="" src={Icon} style={{ width: "30px", height: "30px" }} />
-                </Stack>
-                <Text alignSelf={{ base: 'center', sm: 'start' }} color="#9DD1F1" fontSize="sm">
-                    &copy; {new Date().getFullYear()} Crypto Frying Pans
-                </Text>
-            </Stack>
-        </Box>;
+    return <Box py={10} bg={config.colors.light}>
+        <Flex
+            align={'center'}
+            _before={{
+                content: '""',
+                borderBottom: '1px solid',
+                borderColor: "white",
+                flexGrow: 1,
+                mr: 8
+            }}
+            _after={{
+                content: '""',
+                borderBottom: '1px solid',
+                borderColor: "white",
+                flexGrow: 1,
+                ml: 8
+            }}>
+            <img alt="" src={Icon} style={{ width: "50px", height: "50px" }} />
+        </Flex>
+        <Text pt={6} fontSize='sm' textAlign='center' color="white">
+            &copy; {new Date().getFullYear()} Crypto Frying Pans
+        </Text>
+    </Box>
 }
