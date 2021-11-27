@@ -4,7 +4,7 @@ import config from "../../../config";
 import Icon from "../../../public/icon.png";
 
 export function Footer() {
-    return <Box py={10} bg={config.colors.light}>
+    return <Box py={10} bg={config.colors.medium}>
         <Flex
             align={'center'}
             _before={{

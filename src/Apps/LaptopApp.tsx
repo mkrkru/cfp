@@ -7,10 +7,8 @@ import {
     Heading,
     Divider
 } from "@chakra-ui/react";
-import { Navbar, Footer, Title, RoadMap, NftCarousel } from "../components/Laptop";
-import { useEffect } from "react";
+import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
-import ScrollReveal from "scrollreveal";
 import config from "../config";
 import "@fontsource/abeezee";
 
@@ -23,23 +21,16 @@ export default function LaptopApp() {
         <br />
     </>;
 
-    useEffect(() => {
-        ScrollReveal().reveal('.revealClass', { delay: 100 });
-
-        const Titles = ["CRYPTO", "FRYING", "PANS"];
-        const randomInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-        setInterval(() => document.title = Titles[randomInt(0, Titles.length - 1)], 3000);
-    }, []);
-
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <Navbar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
         <VStack spacing={24} py={24} bg={config.colors.dark} justify="center">
             <Title />
 
-            <img alt="" className="revealClass" style={{ width: "1000px", height: "470px", borderRadius: "2px" }} src={FirstImage} />
-            <Text className="revealClass" align="center" color={config.colors.lighter} fontSize="2xl" px={40}>
+            <img alt="" style={{ width: "1050px", height: "600px" }} src={FirstImage} />
+            <Text align="center" color={config.colors.lighter} fontSize="2xl" px={60}>
                 Whether it's an experienced chef looking to delight a client with an extravagant dish or a newbie looking for homemade food, cooking a good meal starts with choosing the right dishes.
+                <br />
                 That is why the production company REALPRESS, together with Crypto Frying Pans, invites you to become a part of a unique project, where you can watch the development of the enterprise in real time and receive your rewards from this.
             </Text>
             <Divide />
@@ -55,6 +46,10 @@ export default function LaptopApp() {
 
             <Heading fontStyle="italic" color={config.colors.lighter} as="h2">Road Map</Heading>
             <RoadMap />
+            <Divide />
+
+            <Heading fontStyle="italic" color={config.colors.lighter} as="h2">Team</Heading>
+            <Team />
         </VStack>
 
         <Footer />

@@ -1,4 +1,4 @@
-import { ButtonGroup, Flex, IconButton, Link, Tooltip } from '@chakra-ui/react';
+import { ButtonGroup, Flex, IconButton, Link } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import Profile from "./children/Profile";
 import AccountModal from "./children/AccountModal";
@@ -14,27 +14,21 @@ interface NavbarProps {
 export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
     return <Flex flexDirection="column" bg={config.colors.darker} pl={20} pr={4}>
         <Flex alignItems="center" justifyContent="space-between" h={16}>
-            <Link href={"/"}><img alt="" style={{ width: "30px", height: "30px" }} src={Icon} /></Link>
+            <Link href={"/"}><img alt="" style={{ width: "40px", height: "40px" }} src={Icon} /></Link>
             <Flex alignItems="center" justifyContent="center">
                 <ButtonGroup variant="ghost">
                     <Link href="https://discord.com" isExternal>
-                        <Tooltip hasArrow label="Discord" bg="#009eff" color="white">
-                            <IconButton color={config.colors.blue} aria-label="Discord" icon={<FaDiscord fontSize="20px" />} />
-                        </Tooltip>
+                        <IconButton color={config.colors.blue} aria-label="Discord" icon={<FaDiscord fontSize="20px" />} />
                     </Link>
-                    <Link href="https://twitter.com" isExternal>
-                        <Tooltip hasArrow label="Twitter" bg="#009eff" color="white">
-                            <IconButton color={config.colors.blue} aria-label="Twitter" icon={<FaTwitter fontSize="20px" />} />
-                        </Tooltip>
+                    <Link href="https://twitter.com/cryptopans" isExternal>
+                        <IconButton color={config.colors.blue} aria-label="Twitter" icon={<FaTwitter fontSize="20px" />} />
                     </Link>
                     <Link href="https://instagram.com" isExternal>
-                        <Tooltip hasArrow label="Instagram" bg="#009eff" color="white">
-                            <IconButton color={config.colors.blue} aria-label="Instagram" icon={<FaInstagram fontSize="20px" />} />
-                        </Tooltip>
+                        <IconButton color={config.colors.blue} aria-label="Instagram" icon={<FaInstagram fontSize="20px" />} />
                     </Link>
-                    <Profile handleOpenModal={onOpen}/>
+                    <Profile handleOpenModal={onOpen} />
                 </ButtonGroup>
-                <AccountModal isOpen={isOpen} onClose={onClose}/>
+                <AccountModal isOpen={isOpen} onClose={onClose} />
             </Flex>
         </Flex>
     </Flex>;

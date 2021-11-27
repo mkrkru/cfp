@@ -4,4 +4,5 @@ declare module "@metamask/jazzicon" {
   export default function (diameter: number, seed: number): HTMLElement;
 }
 
-declare module "scrollreveal";
+declare module "react-reveal/Fade";
+declare module "react-marquee-line";

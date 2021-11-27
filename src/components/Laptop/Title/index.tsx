@@ -15,7 +15,7 @@ export function Title() {
         color: color,
         transition: "all .3s ease",
         marginTop: "10vh",
-        marginBottom: "30vh",
+        marginBottom: "20vh",
         fontSize: "12px"
     }}>{
 ` █████╗ ██████╗ ██╗   ██╗██████╗ ████████╗ █████╗ 

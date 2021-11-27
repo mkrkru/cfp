@@ -1,4 +1,5 @@
 import { Heading, Text, Flex } from "@chakra-ui/react";
+import Fade from "react-reveal/Fade";
 import config from "../../../../config";
 
 interface CardProps {
@@ -12,7 +13,7 @@ interface CardProps {
 }
 
 export default function Card({ id, image, w, h, text, phase, pos }: CardProps) {
-    return <Flex
+    const Main = <Flex
         className="revealClass"
         id={id}
         display="flex"
@@ -21,9 +22,9 @@ export default function Card({ id, image, w, h, text, phase, pos }: CardProps) {
         style={{
             position: "relative",
             borderRadius: "6px",
-            boxShadow: "0px 30px 40px -20px #ffffff",
+            boxShadow: "0px 30px 40px -20px #aaaaaa",
             padding: "24px",
-            borderTop: `3px solid ${pos.borderTop}`,
+            borderTop: `2px solid ${pos.borderTop}`,
             left: pos.left ? pos.left : null,
             right: pos.right ? pos.right : null
         }}
@@ -32,4 +33,6 @@ export default function Card({ id, image, w, h, text, phase, pos }: CardProps) {
         <Text mx="5vh" mixW="40vh" maxW="50vh" color={config.colors.lighter} fontSize="2xl">{text}</Text>
         <img style={{ borderRadius: "6px", pointerEvents: "none", width: w / 2.7, height: h / 2.7 }} src={image} alt=""/>
     </Flex>;
+
+    return ["1", "3"].includes(phase) ? <Fade left>{Main}</Fade> : <Fade right>{Main}</Fade>;
 }

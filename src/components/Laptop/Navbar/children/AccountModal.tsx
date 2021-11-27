@@ -10,9 +10,10 @@ import {
     ModalBody,
     ModalCloseButton,
     Text,
-    Tooltip
+    Tooltip,
+    Link
 } from "@chakra-ui/react";
-import { CopyIcon } from "@chakra-ui/icons";
+import { CopyIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
 import config from "../../../../config";
@@ -26,7 +27,10 @@ interface AccountModalProps {
 export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
     const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
     const { account, deactivate } = useEthers();
-    const handleDisconnectWallet = () => deactivate();
+    const handleDisconnectWallet = () => {
+        deactivate();
+        onClose();
+    }
     const handleShowCopiedTooltip = () => {
         setShowCopiedTooltip(true);
         setTimeout(() => setShowCopiedTooltip(false), 1000);
@@ -108,6 +112,22 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                                 Copy address
                             </Tooltip>
                         </Button>
+                        <Link
+                            fontSize="sm"
+                            display="flex"
+                            alignItems="center"
+                            href={`https://ropsten.etherscan.io/address/${account}`}
+                            isExternal
+                            color={config.colors.gray}
+                            ml={6}
+                            _hover={{
+                                textDecoration: "none",
+                                color: config.colors.lighter
+                            }}
+                        >
+                            <ExternalLinkIcon mr={1} />
+                            View on Etherscan
+                        </Link>
                     </Flex>
                 </Box>
             </ModalBody>

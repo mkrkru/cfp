@@ -1,11 +1,17 @@
-import { Carousel } from 'react-responsive-carousel';
 import Nft1 from "../../../public/nft1.png";
 import Nft2 from "../../../public/nft2.png";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-const images = [Nft1, Nft2];
+import Nft3 from "../../../public/nft3.png";
+import Nft4 from "../../../public/nft4.png";
+import Nft5 from "../../../public/nft5.png";
+import Nft6 from "../../../public/nft6.png";
+import Nft7 from "../../../public/nft7.png";
+import Nft8 from "../../../public/nft8.png";
+import Marquee from "react-fast-marquee";
+import "./style.css";
 
 export function NftCarousel() {
-    return <Carousel autoPlay={true} stopOnHover={true} interval={6000} transitionTime={500} infiniteLoop={true} showThumbs={false}>
-        {images.map(x => <div><img src={x} alt="" style={{ width: "300px", height: "300px", borderRadius: "4px" }} /></div>)}
-    </Carousel>;
+    const images = [Nft1, Nft2, Nft3, Nft4, Nft5, Nft6, Nft7, Nft8];
+    return <Marquee gradient={false} speed={50}>
+        {images.map(x => <img style={{ borderRadius: "8px" }} src={x} alt="" className="image" />)}
+    </Marquee>;
 }

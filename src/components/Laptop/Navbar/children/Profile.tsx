@@ -59,7 +59,7 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
                         account.length
                     )}`}
                 </Text>
-                <Identicon/>
+                <Identicon />
             </Button>
         </Box>
         : <Button
