@@ -1,7 +1,7 @@
 import { Button, Box, Text, useToast, Spinner } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
-import config from "../../../../config";
+import { colors } from "../../../../config";
 import Identicon from "./Identicon";
 import Icon from "../../../../public/icon.png";
 
@@ -35,24 +35,24 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
             alignItems="center"
             pl={3}
             pr={0.5}
-            background={config.colors.medium}
+            background={colors.medium}
             borderRadius="xl"
         >
-            <Text mr={2} color={config.colors.lighter} fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color={config.colors.lighter} />}</Text>
+            <Text mr={2} color={colors.lighter} fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color={colors.lighter} />}</Text>
             <Button
                 onClick={handleOpenModal}
-                bg={config.colors.dark}
+                bg={colors.dark}
                 border="1px solid transparent"
                 _hover={{
                     border: "1px",
                     borderStyle: "solid",
-                    borderColor: config.colors.blue,
-                    backgroundColor: config.colors.medium
+                    borderColor: colors.blue,
+                    backgroundColor: colors.medium
                 }}
                 borderRadius="xl"
                 height="38px"
             >
-                <Text color={config.colors.lighter} fontSize="md" fontWeight="medium" mr="2">
+                <Text color={colors.lighter} fontSize="md" fontWeight="medium" mr="2">
                     {account &&
                     `${account.slice(0, 6)}...${account.slice(
                         account.length - 4,
@@ -64,15 +64,15 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
         </Box>
         : <Button
             onClick={handleConnectWallet}
-            bg={config.colors.medium}
-            color={config.colors.lighter}
+            bg={colors.medium}
+            color={colors.lighter}
             fontSize="lg"
             fontWeight="medium"
             borderRadius="xl"
             border="1px solid transparent"
             _hover={{
-                borderColor: config.colors.blue,
-                color: config.colors.blue
+                borderColor: colors.blue,
+                color: colors.blue
             }}
         >
             Login with Metamask <img alt="" style={{ marginLeft: "6px", width: "20px", height: "20px" }} src={Icon} />

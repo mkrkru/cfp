@@ -6,3 +6,4 @@ declare module "@metamask/jazzicon" {
 
 declare module "react-reveal/Fade";
 declare module "react-marquee-line";
+declare module "@alch/alchemy-web3";
