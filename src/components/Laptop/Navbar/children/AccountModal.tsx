@@ -25,7 +25,7 @@ interface AccountModalProps {
 };
 
 export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
-    const [showCopiedTooltip, setShowCopiedTooltip] = useState(false);
+    const [ showCopiedTooltip, setShowCopiedTooltip ] = useState(false);
     const { account, deactivate } = useEthers();
     const handleDisconnectWallet = () => {
         deactivate();

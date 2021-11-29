@@ -8,7 +8,7 @@ function getRandomColor() {
 }
 
 export function Title() {
-    const [color, setColor] = useState(colors.lighter);
+    const [ color, setColor ] = useState(colors.lighter);
     setInterval(() => setColor(getRandomColor()), 4000);
 
     return <pre style={{

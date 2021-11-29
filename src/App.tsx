@@ -27,7 +27,7 @@ export default function App() {
         <Navbar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
 
         <VStack spacing={24} pb={24} bg={colors.dark} justify="center">
-            <motion.div style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }}><img alt="" src={FirstImage} /></motion.div>
+            <motion.img style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }} alt="" src={FirstImage} />
             <Title />
 
             <Text align="center" color={colors.lighter} fontSize="2xl" px={60}>

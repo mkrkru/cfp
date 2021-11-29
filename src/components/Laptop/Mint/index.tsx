@@ -1,6 +1,6 @@
 import pinataSDK from '@pinata/sdk';
 import contractABI from "./contract-abi";
-import { useSendTransaction } from "@usedapp/core";
+import { useSendTransaction, useGasPrice } from "@usedapp/core";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 import { Button, Spinner } from "@chakra-ui/react";
 import { useState } from "react";
@@ -14,9 +14,10 @@ const minting = {
 }
 
 export function Mint() {
-    const [loading, setLoading] = useState(false);
+    const [ loading, setLoading ] = useState(false);
     const { sendTransaction } = useSendTransaction();
     const { pinJSONToIPFS } = pinataSDK(minting.PINATA_KEY, minting.PINATA_SECRET);
+    const gasPrice = useGasPrice();
     const Alchemy = createAlchemyWeb3(minting.ALCHEMY_KEY);
 
     async function mint(url: string, name: string, description: string) {
@@ -44,5 +45,13 @@ export function Mint() {
         }
     };
 
-    return <Button onClick={() => mint("https://gateway.pinata.cloud/ipfs/QmTjNeHXgXTLL5J3w19Mz7VM83PRC2zpeenjySYgneC7Fo", "test1name", "test1desc")}>{loading ? <Spinner color={colors.lighter} /> : "Mint"}</Button>;
+    const onMint = () => mint("https://gateway.pinata.cloud/ipfs/QmTjNeHXgXTLL5J3w19Mz7VM83PRC2zpeenjySYgneC7Fo", "test1name", "test1desc");
+
+    return <Button onClick={onMint}>
+        {
+            loading
+                ? <Spinner color={colors.lighter} />
+                : `Mint (Gas: ${gasPrice ? `${(Number(gasPrice) * 0.000000001).toFixed(3)} gwei` : "Unknown"})`
+        }
+    </Button>;
 }

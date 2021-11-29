@@ -3,7 +3,7 @@ import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import { colors } from "../../../../config";
 import Identicon from "./Identicon";
-import Icon from "../../../../public/icon.png";
+import Icon from "../../../../public/metamask.png";
 
 interface ProfileProps {
     handleOpenModal: any;
