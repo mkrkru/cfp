@@ -45,9 +45,7 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
             borderColor={colors.medium}
             borderRadius="3xl"
         >
-            <ModalHeader color={colors.lighter} px={4} fontSize="lg" fontWeight="medium">
-                Account
-            </ModalHeader>
+            <ModalHeader color={colors.lighter} px={4} fontSize="lg" fontWeight="medium">Account</ModalHeader>
             <ModalCloseButton
                 color={colors.lighter}
                 fontSize="sm"

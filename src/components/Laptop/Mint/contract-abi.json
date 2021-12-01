@@ -1,5 +1,4 @@
-// eslint-disable-next-line
-export default [
+[
   {
     "inputs": [],
     "stateMutability": "nonpayable",

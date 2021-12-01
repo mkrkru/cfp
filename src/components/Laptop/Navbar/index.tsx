@@ -26,13 +26,13 @@ export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
             <Mint />
             <Flex alignItems="center" justifyContent="center">
                 <ButtonGroup variant="ghost">
-                    <Link href="https://discord.com" isExternal>
+                    <Link href="https://discord.com/" isExternal>
                         <IconButton color={colors.blue} aria-label="Discord" icon={<FaDiscord fontSize="20px" />} />
                     </Link>
-                    <Link href="https://twitter.com/cryptopans" isExternal>
+                    <Link href="https://twitter.com/CryptoPans" isExternal>
                         <IconButton color={colors.blue} aria-label="Twitter" icon={<FaTwitter fontSize="20px" />} />
                     </Link>
-                    <Link href="https://instagram.com" isExternal>
+                    <Link href="https://instagram.com/" isExternal>
                         <IconButton color={colors.blue} aria-label="Instagram" icon={<FaInstagram fontSize="20px" />} />
                     </Link>
                     <Profile handleOpenModal={onOpen} />

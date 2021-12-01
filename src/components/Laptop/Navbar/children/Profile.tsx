@@ -1,9 +1,10 @@
-import { Button, Box, Text, useToast, Spinner } from "@chakra-ui/react";
+import { Button, Box, Text, useToast, Spinner, Tooltip } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
 import { colors } from "../../../../config";
 import Identicon from "./Identicon";
 import Icon from "../../../../public/metamask.png";
+import { useState } from "react";
 
 interface ProfileProps {
     handleOpenModal: any;
@@ -13,6 +14,11 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
     const { activateBrowserWallet, account } = useEthers();
     const toast = useToast();
     const etherBalance = useEtherBalance(account);
+    const [ showCopiedTooltip, setShowCopiedTooltip ] = useState(false);
+    const handleShowCopiedTooltip = () => {
+        setShowCopiedTooltip(true);
+        setTimeout(() => setShowCopiedTooltip(false), 1000);
+    };
 
     function handleConnectWallet() {
         // @ts-ignore
@@ -39,28 +45,30 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
             borderRadius="xl"
         >
             <Text mr={2} color={colors.lighter} fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color={colors.lighter} />}</Text>
-            <Button
-                onClick={handleOpenModal}
-                bg={colors.dark}
-                border="1px solid transparent"
-                _hover={{
-                    border: "1px",
-                    borderStyle: "solid",
-                    borderColor: colors.blue,
-                    backgroundColor: colors.medium
-                }}
-                borderRadius="xl"
-                height="38px"
-            >
-                <Text color={colors.lighter} fontSize="md" fontWeight="medium" mr="2">
-                    {account &&
-                    `${account.slice(0, 6)}...${account.slice(
-                        account.length - 4,
-                        account.length
-                    )}`}
-                </Text>
-                <Identicon />
-            </Button>
+            <Tooltip isOpen={showCopiedTooltip} label="Copied!" bg={colors.light}>
+                <Button
+                    onClick={handleShowCopiedTooltip}
+                    bg={colors.dark}
+                    border="1px solid transparent"
+                    _hover={{
+                        border: "1px",
+                        borderStyle: "solid",
+                        borderColor: colors.blue,
+                        backgroundColor: colors.medium
+                    }}
+                    borderRadius="xl"
+                    height="38px"
+                >
+                    <Text color={colors.lighter} fontSize="md" fontWeight="medium" mr="2">
+                        {account &&
+                        `${account.slice(0, 6)}...${account.slice(
+                            account.length - 4,
+                            account.length
+                        )}`}
+                    </Text>
+                    <Identicon />
+                </Button>
+            </Tooltip>
         </Box>
         : <Button
             onClick={handleConnectWallet}
