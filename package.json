@@ -23,6 +23,7 @@
     "@usedapp/core": "^0.4.1",
     "ethers": "^5.4.0",
     "framer-motion": "^4.1.17",
+    "ipfs": "^0.60.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-draggable": "^4.4.4",

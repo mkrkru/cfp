@@ -1,15 +1,28 @@
-import { VStack } from "@chakra-ui/react";
+import { VStack, Heading, Text } from "@chakra-ui/react";
 import CardNoBlock from "./children/CardNoBlock";
 import Phase1 from "../../../public/phase1.png";
 import Phase2 from "../../../public/phase2.png";
-import Phase3 from "../../../public/phase3.png";
-import Phase4 from "../../../public/phase4.png";
+import { colors } from "../../../config";
+
+const titles = [
+    "Light stove! Warming up the audience! Contests, giveaways, lotteries! Website and Discord creation!",
+    "It’s getting hotter! Mint of the first free custom collection of 100 NFTs!",
+    "The oil is already boiling! Embodiment into reality! No merch, no 3d models like everyone doing! More realistic, more useful, more cool...",
+    "Smells fried! Generative collection creation!",
+    "The first stage is cooked! Mint of the generative collection! The best day for owners of custom NFT from the first hundred!"
+];
 
 export function RoadMap() {
-    return <VStack spacing="10vh" shouldWrapChildren={true}>
-        <CardNoBlock color="#ff5050" pos={{ right: "10%" }} image={Phase1} w={800} h={800} text={"Frying Pans airdrop to three lucky holders."} phase={"1"} />
-        <CardNoBlock color="#ff923d" pos={{ left: "10%" }} image={Phase2} w={866} h={454} text={"Distribution of the first unique collection."} phase={"2"} />
-        <CardNoBlock color="#f2ff3d" pos={{ right: "5%" }} image={Phase3} w={726} h={413} text={"Attracting holders to the possibility of receiving passive income."} phase={"3"} />
-        <CardNoBlock color="#50ff6f" pos={{ left: "10%" }} image={Phase4} w={800} h={536} text={"Release of generative collection."} phase={"4"} />
+    return <VStack shouldWrapChildren={true}>
+        <Heading color={colors.lighter}>Stage 1</Heading>
+        <CardNoBlock image={Phase1} text={titles[0]} phase={"1"} />
+        <CardNoBlock image={Phase2} text={titles[1]} phase={"2"} />
+        <CardNoBlock image={Phase1} text={titles[2]} phase={"3"} />
+        <CardNoBlock image={Phase2} text={titles[3]} phase={"4"} />
+        <CardNoBlock image={Phase1} text={titles[4]} phase={"5"} />
+        <Heading color={colors.lighter}>Stage 2</Heading>
+        <br />
+        <br />
+        <Text color={colors.lighter} fontSize="2xl">Coming soon...</Text>
     </VStack>;
 }

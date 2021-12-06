@@ -46,7 +46,7 @@ export default function App() {
             </Text>
             <Divide />
 
-            <Heading fontStyle="italic" color={colors.lighter} as="h2">Road Map</Heading>
+            <Heading fontStyle="italic" color={colors.lighter} fontSize="56px">Road Map</Heading>
             <RoadMap />
             <Divide />
 

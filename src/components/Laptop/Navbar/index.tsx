@@ -23,7 +23,7 @@ export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
     return <Flex flexDirection="column" pl={20} pr={4} style={{ position: "fixed", width: "100%", zIndex: 1000, background: hexToRGB(colors.darker, 0.9) }}>
         <Flex alignItems="center" justifyContent="space-between" h={16}>
             <Link href={"/"}><img alt="" style={{ width: "40px", height: "40px" }} src={Icon} /></Link>
-            <Mint />
+            {/*<Mint />*/}
             <Flex alignItems="center" justifyContent="center">
                 <ButtonGroup variant="ghost">
                     <Link href="https://discord.com/" isExternal>
