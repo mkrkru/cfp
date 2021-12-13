@@ -18,14 +18,14 @@ export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
             {/*<Mint />*/}
             <Flex alignItems="center" justifyContent="center">
                 <ButtonGroup>
-                    <Link href="https://discord.com/" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Discord" icon={<FaDiscord fontSize="20px" />} />
+                    <Link href="https://discord.gg/MWhFyQkvhn" isExternal>
+                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: colors.gray }} icon={<FaDiscord fontSize="20px" />} />
                     </Link>
                     <Link href="https://twitter.com/CryptoPans" isExternal>
                         <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: colors.gray }} icon={<FaTwitter fontSize="20px" />} />
                     </Link>
                     <Link href="https://instagram.com/" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" icon={<FaInstagram fontSize="20px" />} />
+                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: colors.gray }} icon={<FaInstagram fontSize="20px" />} />
                     </Link>
                     <Profile handleOpenModal={onOpen} />
                 </ButtonGroup>
