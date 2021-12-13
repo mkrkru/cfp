@@ -48,7 +48,7 @@ export default function AccountPopover({ isOpen, onClose }: AccountPopoverProps)
                         <Flex>
                             <Identicon />
                             <Text
-                                color={colors.lighter}
+                                color="white"
                                 fontSize="xl"
                                 fontWeight="semibold"
                                 ml="2"

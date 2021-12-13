@@ -3,11 +3,9 @@
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 import { Button, Spinner } from "@chakra-ui/react";
 import { useState } from "react";
-import { colors } from "../../../config";
 
 // const IPFS = ipfsClient("https://bafybeidjpgqe3mb5lrjgt5jmhsn3c6kntuvafhv6gx75jfwz6gzyvo5c6q.ipfs.dweb.link/");
 const NETWORK = "ropsten";
-const randomorg = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 const minting = {
     CID: "QmVSP5ruaf3jCjjhFGELTLX13bMen9vFyFsst5QuWA3JTm",
     ALCHEMY_KEY: `https://eth-${NETWORK}.alchemyapi.io/v2/uMnfAGW5bD8JCiHxzXpyENtBJao_AjHe`,
@@ -17,6 +15,7 @@ const minting = {
 
 export function Mint() {
     const [ loading, setLoading ] = useState(false);
+    // eslint-disable-next-line
     const Alchemy = createAlchemyWeb3(minting.ALCHEMY_KEY);
 
     async function onMint() {
@@ -50,5 +49,5 @@ export function Mint() {
                 }); */
         };
 
-    return <Button onClick={onMint}>{loading ? <Spinner color={colors.lighter} /> : "Mint"}</Button>;
+    return <Button onClick={onMint}>{loading ? <Spinner color="white" /> : "Mint"}</Button>;
 }

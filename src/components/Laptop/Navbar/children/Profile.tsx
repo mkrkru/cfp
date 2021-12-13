@@ -41,10 +41,10 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
             alignItems="center"
             pl={3}
             pr={0.5}
-            background={colors.medium}
+            background="black"
             borderRadius="xl"
         >
-            <Text mr={2} color={colors.lighter} fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color={colors.lighter} />}</Text>
+            <Text mr={2} color="white" fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color="white" />}</Text>
             <Tooltip isOpen={showCopiedTooltip} label="Copied!" bg={colors.light}>
                 <Button
                     onClick={handleShowCopiedTooltip}
@@ -59,7 +59,7 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
                     borderRadius="xl"
                     height="38px"
                 >
-                    <Text color={colors.lighter} fontSize="md" fontWeight="medium" mr="2">
+                    <Text color="white" fontSize="md" fontWeight="medium" mr="2">
                         {account &&
                         `${account.slice(0, 6)}...${account.slice(
                             account.length - 4,
@@ -72,15 +72,15 @@ export default function Profile({ handleOpenModal }: ProfileProps) {
         </Box>
         : <Button
             onClick={handleConnectWallet}
-            bg={colors.medium}
-            color={colors.lighter}
+            bg="black"
+            color="white"
             fontSize="lg"
             fontWeight="medium"
             borderRadius="xl"
             border="1px solid transparent"
             _hover={{
-                borderColor: colors.blue,
-                color: colors.blue
+                borderColor: colors.gray,
+                color: colors.gray
             }}
         >
             Login with Metamask <img alt="" style={{ marginLeft: "6px", width: "20px", height: "20px" }} src={Icon} />

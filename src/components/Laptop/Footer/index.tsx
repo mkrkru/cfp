@@ -1,10 +1,9 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { Text } from '@chakra-ui/layout';
-import { colors } from "../../../config";
 import Icon from "../../../public/icon.png";
 
 export function Footer() {
-    return <Box py={10} bg={colors.medium}>
+    return <Box py={10} bg="black">
         <Flex
             align={'center'}
             _before={{

@@ -1,6 +1,5 @@
 import { Heading, Text, Flex } from "@chakra-ui/react";
 import Fade from "react-reveal/Fade";
-import { colors } from "../../../../config";
 
 interface CardNoBlockProps {
     image: any;
@@ -17,8 +16,8 @@ export default function CardNoBlock({ image, text, phase }: CardNoBlockProps) {
                 alignItems="center"
             >
                 <img style={{ borderRadius: "6px", pointerEvents: "none", width: 1620 / 4, height: 2160 / 4, marginRight: "4vh" }} src={image} alt="" />
-                <Heading color={colors.lighter} as="h3" mx="6vh">Phase {phase}</Heading>
-                <Text maxW="50vh" color={colors.lighter} fontSize="2xl">{text}</Text>
+                <Heading color="white" as="h3" mx="6vh">Phase {phase}</Heading>
+                <Text maxW="50vh" color="white" fontSize="2xl">{text}</Text>
             </Flex>
         </Fade>
         : <Fade right>
@@ -27,8 +26,8 @@ export default function CardNoBlock({ image, text, phase }: CardNoBlockProps) {
                justifyContent="space-between"
                alignItems="center"
            >
-               <Heading color={colors.lighter} as="h3">Phase {phase}</Heading>
-               <Text mx="4vh" maxW="50vh" color={colors.lighter} fontSize="2xl">{text}</Text>
+               <Heading color="white" as="h3">Phase {phase}</Heading>
+               <Text mx="4vh" maxW="50vh" color="white" fontSize="2xl">{text}</Text>
                <img style={{ borderRadius: "6px", pointerEvents: "none", width: 1620 / 4, height: 2160 / 4 }} src={image} alt="" />
            </Flex>
        </Fade>;

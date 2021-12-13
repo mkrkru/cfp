@@ -45,9 +45,9 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
             borderColor={colors.medium}
             borderRadius="3xl"
         >
-            <ModalHeader color={colors.lighter} px={4} fontSize="lg" fontWeight="medium">Account</ModalHeader>
+            <ModalHeader color="white" px={4} fontSize="lg" fontWeight="medium">Account</ModalHeader>
             <ModalCloseButton
-                color={colors.lighter}
+                color="white"
                 fontSize="sm"
                 _hover={{ color: colors.gray }}
             />
@@ -66,7 +66,7 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                         <Flex>
                             <Identicon />
                             <Text
-                                color={colors.lighter}
+                                color="white"
                                 fontSize="xl"
                                 fontWeight="semibold"
                                 ml="2"

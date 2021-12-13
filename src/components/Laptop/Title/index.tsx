@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { colors } from "../../../config";
 
 function getRandomColor() {
     let res = '#';
@@ -8,14 +7,14 @@ function getRandomColor() {
 }
 
 export function Title() {
-    const [ color, setColor ] = useState(colors.lighter);
-    setInterval(() => setColor(getRandomColor()), 4000);
+    const [ color, setColor ] = useState(getRandomColor());
+    setInterval(() => setColor(getRandomColor()), 2000);
 
     return <pre style={{
         color: color,
-        transition: "all .3s ease",
-        marginBottom: "20vh",
-        fontSize: "12px"
+        transition: "all .2s ease",
+        fontSize: "12px",
+        marginTop: "20vh"
     }}>{
 ` █████╗ ██████╗ ██╗   ██╗██████╗ ████████╗ █████╗ 
 ██╔══██╗██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██╔══██╗
