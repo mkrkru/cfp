@@ -38,7 +38,7 @@ export default function App() {
                 Whether it's an experienced chef looking to delight a customer with an extravagant meal, or an amateur cooking homemade food, they all need good quality pans.
                 <br />
                 <br />
-                Company-manufacture-plant <Link to={"https://realpress.ru"} color={colors.gray} isExternal>realpress.ru</Link> together with CryptoFryingPans invites you to become a member of a unique project where fantasy is intertwined with reality, where familiar pans cook the most unusual dishes, where the pans themselves can be anything and anyone…
+                Company-manufacture-plant <Link href={"https://realpress.ru"} color={colors.gray} _hover={{ textDecoration: "none", borderBottom: "1px dotted #e0d16c" }} isExternal>realpress.ru</Link> together with CryptoFryingPans invites you to become a member of a unique project where fantasy is intertwined with reality, where familiar pans cook the most unusual dishes, where the pans themselves can be anything and anyone…
                 <br />
                 <br />
                 Join us and get your benefit!
