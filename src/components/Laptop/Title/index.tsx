@@ -8,11 +8,11 @@ function getRandomColor() {
 
 export function Title() {
     const [ color, setColor ] = useState(getRandomColor());
-    setInterval(() => setColor(getRandomColor()), 2000);
+    setInterval(() => setColor(getRandomColor()), 1500);
 
     return <pre style={{
         color: color,
-        transition: "all .2s ease",
+        transition: "all .1s ease",
         fontSize: "12px",
         marginTop: "20vh"
     }}>{
