@@ -7,11 +7,25 @@ import Nft6 from "../../../public/nft6.png";
 import Nft7 from "../../../public/nft7.png";
 import Nft8 from "../../../public/nft8.png";
 import Marquee from "react-fast-marquee";
-import "./style.css";
+import { Image } from "@chakra-ui/react";
 
 export function NftCarousel() {
     const images = [Nft1, Nft2, Nft3, Nft4, Nft5, Nft6, Nft7, Nft8];
     return <Marquee gradient={false} speed={50}>
-        {images.map(x => <img style={{ borderRadius: "8px" }} src={x} alt="" className="image" />)}
+        {images.map(x => <Image
+            style={{
+                borderRadius: "8px",
+                width: "300px",
+                height: "300px",
+                marginLeft: "20px",
+                transition: "all .2s ease-in-out"
+            }}
+            src={x}
+            alt=""
+            _hover={{
+                width: "360px",
+                height: "360px"
+            }}
+        />)}
     </Marquee>;
 }
