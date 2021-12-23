@@ -20,7 +20,7 @@ export function Footer() {
                 flexGrow: 1,
                 ml: 8
             }}>
-            <img alt="" src={Icon} style={{ width: "50px", height: "50px" }} />
+            <img alt="" src={Icon} style={{ width: "60px", height: "60px" }} />
         </Flex>
         <Text pt={6} fontSize='sm' textAlign='center' color="white">
             &copy; {new Date().getFullYear()} Crypto Frying Pans

@@ -1,25 +1,27 @@
 import {
     Flex,
-    Link,IconButton, ButtonGroup
+    Link,
+    IconButton,
+    ButtonGroup
 } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
 import { colors } from "../../../config";
 
 export function Navbar() {
-    return <Flex flexDirection="column" pl="1vh" pr="3vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
-        <Flex alignItems="center" justifyContent="space-between" h={50}>
-            <Link href={"/"}><img alt="" style={{ marginTop: "6vh", width: "130px", height: "130px" }} src={Icon} /></Link>
+    return <Flex flexDirection="column" pl="1vh" pr="3vh" pt="2vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
+        <Flex alignItems="center" justifyContent="space-between">
+            <Link href={"/"}><img alt="" style={{ width: "130px", height: "130px" }} src={Icon} /></Link>
             {/*<Mint />*/}
-            <ButtonGroup mt="4vh">
+            <ButtonGroup spacing={20}>
                 <Link href="https://discord.gg/MWhFyQkvhn" isExternal>
-                    <IconButton borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: colors.gray }} icon={<FaDiscord fontSize="55px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: colors.gray }} icon={<FaDiscord fontSize="20px" />} />
                 </Link>
                 <Link href="https://twitter.com/CryptoPans" isExternal>
-                    <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: colors.gray }} icon={<FaTwitter fontSize="55px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: colors.gray }} icon={<FaTwitter fontSize="20px" />} />
                 </Link>
                 <Link href="https://instagram.com/" isExternal>
-                    <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: colors.gray }} icon={<FaInstagram fontSize="55px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: colors.gray }} icon={<FaInstagram fontSize="20px" />} />
                 </Link>
             </ButtonGroup>
             {/*<HamburgerIcon onClick={onOpen} borderRadius="xl" color="white" w="60px" h="60px" />*/}

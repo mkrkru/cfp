@@ -1,4 +1,5 @@
 import { VStack, Heading, Text } from "@chakra-ui/react";
+import Fade from "react-reveal/Fade";
 import CardNoBlock from "./children/CardNoBlock";
 import Phase1 from "../../../public/phase1.png";
 import Phase2 from "../../../public/phase2.png";
@@ -25,6 +26,6 @@ export function RoadMap() {
         <Heading color="white">Stage 2</Heading>
         <br />
         <br />
-        <Text color="white" fontSize="2xl">Coming soon...</Text>
+        <Fade right><Text color="white" fontSize="2xl">Coming soon...</Text></Fade>
     </VStack>;
 }

@@ -43,10 +43,13 @@ export default function MobileApp() {
             <Divider orientation="horizontal" w="30vh" />
             <br />
 
-            <Heading fontStyle="italic" color="white" px={20} fontSize="60px" textAlign="center">Road Map</Heading>
+            <Heading fontStyle="italic" color="white" fontSize="80px" textAlign="center">Road Map</Heading>
             <RoadMap />
+            <br />
+            <Divider orientation="horizontal" w="30vh" />
+            <br />
 
-            <Heading fontStyle="italic" color="white" px={20} fontSize="60px" textAlign="center">Team</Heading>
+            <Heading fontStyle="italic" color="white" fontSize="80px" textAlign="center">Team</Heading>
             <Team />
         </VStack>
 
