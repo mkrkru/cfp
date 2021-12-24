@@ -1,40 +1,5 @@
 import { Text, Box, Link, SimpleGrid } from "@chakra-ui/react";
-import team1 from "../../../public/team1.png";
-import team2 from "../../../public/team2.png";
-import team3 from "../../../public/team3.png";
-
-const members = [
-    {
-        name: "Hudozhnik",
-        img: team2,
-        place: "hudozhnik",
-        telegram: "mkrkru"
-    },
-    {
-        name: "Makarka",
-        img: team1,
-        place: "developer",
-        telegram: "mkrkru"
-    },
-    {
-        name: "rab",
-        img: team1,
-        place: "tupa rab",
-        telegram: "mkrkru"
-    },
-    {
-        name: "man1",
-        img: team3,
-        place: "manager",
-        telegram: "mkrkru"
-    },
-    {
-        name: "man2",
-        img: team3,
-        place: "manager",
-        telegram: "mkrkru"
-    }
-];
+import { members } from "../../../config";
 
 export const Team = () => {
     return <SimpleGrid columns={1} spacing={40}>

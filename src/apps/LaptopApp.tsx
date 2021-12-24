@@ -5,7 +5,9 @@ import {
     VStack,
     Text,
     Heading,
-    Divider, Link, Flex
+    Divider,
+    Link,
+    Flex
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
