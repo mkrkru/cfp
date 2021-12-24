@@ -1,8 +1,6 @@
 import { ButtonGroup, Flex, IconButton, Link } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
-import Profile from "./children/Profile";
-import AccountModal from "./children/AccountModal";
-import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaTwitter } from "react-icons/fa";
 
 interface NavbarProps {
     isOpen: any;
@@ -23,12 +21,9 @@ export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
                     <Link href="https://twitter.com/CryptoPans" isExternal>
                         <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
                     </Link>
-                    <Link href="https://instagram.com/" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: "#808080" }} icon={<FaInstagram fontSize="20px" />} />
-                    </Link>
-                    <Profile handleOpenModal={onOpen} />
+                    {/*<Profile handleOpenModal={onOpen} />*/}
                 </ButtonGroup>
-                <AccountModal isOpen={isOpen} onClose={onClose} />
+                {/*<AccountModal isOpen={isOpen} onClose={onClose} />*/}
             </Flex>
         </Flex>
     </Flex>;

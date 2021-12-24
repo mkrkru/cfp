@@ -5,7 +5,7 @@ import {
     ButtonGroup
 } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
-import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaTwitter } from "react-icons/fa";
 
 export function Navbar() {
     return <Flex flexDirection="column" pl="1vh" pr="3vh" pt="2vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
@@ -18,9 +18,6 @@ export function Navbar() {
                 </Link>
                 <Link href="https://twitter.com/CryptoPans" isExternal>
                     <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
-                </Link>
-                <Link href="https://instagram.com/" isExternal>
-                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: "#808080" }} icon={<FaInstagram fontSize="20px" />} />
                 </Link>
             </ButtonGroup>
             {/*<HamburgerIcon onClick={onOpen} borderRadius="xl" color="white" w="60px" h="60px" />*/}

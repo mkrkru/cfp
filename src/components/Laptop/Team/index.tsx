@@ -1,6 +1,7 @@
 import { Text, Box, Link, SimpleGrid } from "@chakra-ui/react";
 import team1 from "../../../public/team1.png";
 import team2 from "../../../public/team2.png";
+import team3 from "../../../public/team3.png";
 
 const members1 = [
     {
@@ -25,15 +26,15 @@ const members1 = [
 
 const members2 = [
     {
-        name: "Makarka",
-        img: team1,
-        place: "developer",
+        name: "man1",
+        img: team3,
+        place: "manager",
         telegram: "mkrkru"
     },
     {
-        name: "Makarka",
-        img: team1,
-        place: "developer",
+        name: "man2",
+        img: team3,
+        place: "manager",
         telegram: "mkrkru"
     }
 ];
@@ -54,7 +55,7 @@ export const Team = () => {
                 <img style={{ borderRadius: "6px", pointerEvents: "none" }} src={x.img} alt="" />
                 <Text color="white" textAlign="center" fontSize="30px" my="2vh">{x.name}</Text>
                 <Text color="white" style={{ fontWeight: "bolder", position: "absolute", left: "6vh", bottom: "6vh" }}>{x.place}</Text>
-                <Link to={`https://t.me/${x.telegram}`}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
+                <Link href={`https://t.me/${x.telegram}`}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
             </Box>)}
         </SimpleGrid>
         <SimpleGrid columns={2} spacing={14}>
@@ -71,7 +72,7 @@ export const Team = () => {
                 <img style={{ borderRadius: "6px", pointerEvents: "none" }} src={x.img} alt="" />
                 <Text color="white" textAlign="center" fontSize="30px" my="2vh">{x.name}</Text>
                 <Text color="white" style={{ fontWeight: "bolder", position: "absolute", left: "6vh", bottom: "6vh" }}>{x.place}</Text>
-                <Link to={`https://t.me/${x.telegram}`}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
+                <Link href={`https://t.me/${x.telegram}`}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
             </Box>)}
         </SimpleGrid>
     </>;

@@ -10,7 +10,7 @@ const Team_Horizontal_WithDesc = () => {
             position: "relative"
         }}>
             <Text color="white" style={{ fontWeight: "bolder", position: "absolute", right: "6vh", top: "8vh" }}>{x.place}</Text>
-            <Link to={x.link}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>{x.link}</Text></Link>
+            <Link href={x.link}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>{x.link}</Text></Link>
             <img style={{ borderRadius: "6px", pointerEvents: "none", width: "30%" }} src={x.img} alt="" />
             <Heading color="white" as="h3">{x.name}</Heading>
             <Text mx="5vh" minW="30vh" color="white" fontSize="2xl">{x.desc}</Text>
@@ -32,7 +32,7 @@ const Team_Horizontal_NoDesc = () => {
             <img style={{ borderRadius: "6px", pointerEvents: "none", width: "30%" }} src={x.img} alt="" />
             <Heading color="white" as="h3">{x.name}</Heading>
             <Text color="white" style={{ fontWeight: "bolder", position: "absolute", right: "6vh", top: "8vh" }}>{x.place}</Text>
-            <Link to={x.link}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>{x.link}</Text></Link>
+            <Link href={x.link}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>{x.link}</Text></Link>
             <Box width="4vh"></Box>
         </Box>)}
     </SimpleGrid>;

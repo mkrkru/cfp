@@ -1,6 +1,7 @@
 import { Text, Box, Link, SimpleGrid } from "@chakra-ui/react";
 import team1 from "../../../public/team1.png";
 import team2 from "../../../public/team2.png";
+import team3 from "../../../public/team3.png";
 
 const members = [
     {
@@ -20,6 +21,18 @@ const members = [
         img: team1,
         place: "tupa rab",
         telegram: "mkrkru"
+    },
+    {
+        name: "man1",
+        img: team3,
+        place: "manager",
+        telegram: "mkrkru"
+    },
+    {
+        name: "man2",
+        img: team3,
+        place: "manager",
+        telegram: "mkrkru"
     }
 ];
 
@@ -35,10 +48,10 @@ export const Team = () => {
             maxWidth: "40vh",
             minHeight: "85vh"
         }}>
-            <img style={{ borderRadius: "6px", pointerEvents: "none" }} src={x.img} alt="" />
+            <img style={{ borderRadius: "6px", pointerEvents: "none", marginTop: "-20vh" }} src={x.img} alt="" />
             <Text color="white" textAlign="center" fontSize="80px">{x.name}</Text>
             <Text color="white" fontSize="40px" style={{ fontWeight: "bolder", position: "absolute", left: "6vh", bottom: "6vh" }}>{x.place}</Text>
-            <Link to={`https://t.me/${x.telegram}`}><Text color="gray" fontSize="40px" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
+            <Link href={`https://t.me/${x.telegram}`}><Text color="gray" fontSize="40px" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
         </Box>)}
     </SimpleGrid>;
 };
