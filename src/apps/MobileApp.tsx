@@ -49,6 +49,7 @@ export default function MobileApp() {
             <br />
 
             <Heading fontStyle="italic" color="white" fontSize="80px" textAlign="center">Team</Heading>
+            <br />
             <Team />
         </VStack>
 
