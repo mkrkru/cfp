@@ -1,7 +1,7 @@
 import { Button, Box, Text, useToast, Spinner, Tooltip } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 import { formatEther } from "@ethersproject/units";
-import { colors } from "../../../../config";
+
 import Identicon from "./Identicon";
 import Icon from "../../../../public/metamask.png";
 import { useState } from "react";
@@ -41,16 +41,16 @@ export default function Profile() {
             borderRadius="xl"
         >
             <Text mr={2} color="white" fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color="white" />}</Text>
-            <Tooltip isOpen={showCopiedTooltip} label="Copied!" bg={colors.light}>
+            <Tooltip isOpen={showCopiedTooltip} label="Copied!" bg="gray">
                 <Button
                     onClick={handleShowCopiedTooltip}
-                    bg={colors.dark}
+                    bg="gray"
                     border="1px solid transparent"
                     _hover={{
                         border: "1px",
                         borderStyle: "solid",
-                        borderColor: colors.blue,
-                        backgroundColor: colors.medium
+                        borderColor: "gray",
+                        backgroundColor: "gray"
                     }}
                     borderRadius="xl"
                     height="38px"

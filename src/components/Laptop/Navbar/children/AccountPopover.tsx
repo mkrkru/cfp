@@ -11,7 +11,7 @@ import {
 import { CopyIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
-import { colors } from "../../../../config";
+
 import { useState } from "react";
 
 interface AccountPopoverProps {
@@ -34,11 +34,11 @@ export default function AccountPopover({ isOpen, onClose }: AccountPopoverProps)
     return <Popover isOpen={isOpen} onClose={onClose} size="md">
         <PopoverContent>
             <Box
-                bg={colors.darker}
+                bg="gray"
                     borderRadius="3xl"
                     border="1px"
                     borderStyle="solid"
-                    borderColor={colors.gray}
+                    borderColor={"#808080"}
                     px={5}
                     pt={4}
                     pb={2}
@@ -63,13 +63,13 @@ export default function AccountPopover({ isOpen, onClose }: AccountPopoverProps)
                         </Flex>
                         <Button
                             variant="outline"
-                            borderColor={colors.dark}
+                            borderColor="gray"
                             borderRadius="xl"
-                            color={colors.blue}
+                            color="gray"
                             fontSize="16px"
                             fontWeight="normal"
                             height="34px"
-                            _hover={{ borderColor: colors.blue }}
+                            _hover={{ borderColor: "gray" }}
                             onClick={handleDisconnectWallet}
                         >
                             Logout
@@ -78,17 +78,17 @@ export default function AccountPopover({ isOpen, onClose }: AccountPopoverProps)
                     <Flex alignContent="center" m={3}>
                         <Button
                             variant="link"
-                            color={colors.gray}
+                            color={"#808080"}
                             fontWeight="normal"
                             fontSize="sm"
                             _hover={{
                                 textDecoration: "none",
-                                color: colors.lighter
+                                color: "gray"
                             }}
                             onClick={handleShowCopiedTooltip}
                         >
                             <CopyIcon mr={1} />
-                            <Tooltip hasArrow isOpen={showCopiedTooltip} label="Copied!" bg={colors.light}>
+                            <Tooltip hasArrow isOpen={showCopiedTooltip} label="Copied!" bg="gray">
                                 Copy address
                             </Tooltip>
                         </Button>
@@ -98,11 +98,11 @@ export default function AccountPopover({ isOpen, onClose }: AccountPopoverProps)
                             alignItems="center"
                             href={`https://ropsten.etherscan.io/address/${account}`}
                             isExternal
-                            color={colors.gray}
+                            color={"#808080"}
                             ml={6}
                             _hover={{
                                 textDecoration: "none",
-                                color: colors.lighter
+                                color: "gray"
                             }}
                         >
                             <ExternalLinkIcon mr={1} />

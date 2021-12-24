@@ -16,7 +16,7 @@ import {
 import { CopyIcon, ExternalLinkIcon } from "@chakra-ui/icons";
 import { useEthers } from "@usedapp/core";
 import Identicon from "./Identicon";
-import { colors } from "../../../../config";
+
 import { useState } from "react";
 
 interface AccountModalProps {
@@ -39,24 +39,24 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
     return <Modal isOpen={isOpen} onClose={onClose} isCentered size="md">
         <ModalOverlay />
         <ModalContent
-            background={colors.darker}
+            background="gray"
             border="1px"
             borderStyle="solid"
-            borderColor={colors.medium}
+            borderColor="gray"
             borderRadius="3xl"
         >
             <ModalHeader color="white" px={4} fontSize="lg" fontWeight="medium">Account</ModalHeader>
             <ModalCloseButton
                 color="white"
                 fontSize="sm"
-                _hover={{ color: colors.gray }}
+                _hover={{ color: "#808080" }}
             />
             <ModalBody pt={0} px={4}>
                 <Box
                     borderRadius="3xl"
                     border="1px"
                     borderStyle="solid"
-                    borderColor={colors.gray}
+                    borderColor={"#808080"}
                     px={5}
                     pt={4}
                     pb={2}
@@ -81,13 +81,13 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                         </Flex>
                         <Button
                             variant="outline"
-                            borderColor={colors.dark}
+                            borderColor="gray"
                             borderRadius="xl"
-                            color={colors.blue}
+                            color="gray"
                             fontSize="16px"
                             fontWeight="normal"
                             height="34px"
-                            _hover={{ borderColor: colors.blue }}
+                            _hover={{ borderColor: "gray" }}
                             onClick={handleDisconnectWallet}
                         >
                             Logout
@@ -96,17 +96,17 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                     <Flex alignContent="center" m={3}>
                         <Button
                             variant="link"
-                            color={colors.gray}
+                            color={"#808080"}
                             fontWeight="normal"
                             fontSize="sm"
                             _hover={{
                                 textDecoration: "none",
-                                color: colors.lighter
+                                color: "gray"
                             }}
                             onClick={handleShowCopiedTooltip}
                         >
                             <CopyIcon mr={1} />
-                            <Tooltip hasArrow isOpen={showCopiedTooltip} label="Copied!" bg={colors.light}>
+                            <Tooltip hasArrow isOpen={showCopiedTooltip} label="Copied!" bg="gray">
                                 Copy address
                             </Tooltip>
                         </Button>
@@ -116,11 +116,11 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
                             alignItems="center"
                             href={`https://ropsten.etherscan.io/address/${account}`}
                             isExternal
-                            color={colors.gray}
+                            color={"#808080"}
                             ml={6}
                             _hover={{
                                 textDecoration: "none",
-                                color: colors.lighter
+                                color: "gray"
                             }}
                         >
                             <ExternalLinkIcon mr={1} />
@@ -132,7 +132,7 @@ export default function AccountModal({ isOpen, onClose }: AccountModalProps) {
 
             <ModalFooter
                 justifyContent="end"
-                background={colors.medium}
+                background="gray"
                 borderBottomLeftRadius="3xl"
                 borderBottomRightRadius="3xl"
                 p={6}

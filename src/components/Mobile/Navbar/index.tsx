@@ -6,7 +6,6 @@ import {
 } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
-import { colors } from "../../../config";
 
 export function Navbar() {
     return <Flex flexDirection="column" pl="1vh" pr="3vh" pt="2vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
@@ -15,13 +14,13 @@ export function Navbar() {
             {/*<Mint />*/}
             <ButtonGroup spacing={20}>
                 <Link href="https://discord.gg/MWhFyQkvhn" isExternal>
-                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: colors.gray }} icon={<FaDiscord fontSize="20px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: "#808080" }} icon={<FaDiscord fontSize="20px" />} />
                 </Link>
                 <Link href="https://twitter.com/CryptoPans" isExternal>
-                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: colors.gray }} icon={<FaTwitter fontSize="20px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
                 </Link>
                 <Link href="https://instagram.com/" isExternal>
-                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: colors.gray }} icon={<FaInstagram fontSize="20px" />} />
+                    <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: "#808080" }} icon={<FaInstagram fontSize="20px" />} />
                 </Link>
             </ButtonGroup>
             {/*<HamburgerIcon onClick={onOpen} borderRadius="xl" color="white" w="60px" h="60px" />*/}

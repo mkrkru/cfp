@@ -1,6 +1,6 @@
 import { Heading, Text, Flex } from "@chakra-ui/react";
 import Fade from "react-reveal/Fade";
-import { colors } from "../../../../config";
+
 
 interface CardProps {
     image: any;

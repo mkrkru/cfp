@@ -2,7 +2,6 @@ import { ButtonGroup, Flex, IconButton, Link } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import Profile from "./children/Profile";
 import AccountModal from "./children/AccountModal";
-import { colors } from "../../../config";
 import { FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
 
 interface NavbarProps {
@@ -19,13 +18,13 @@ export function Navbar({ isOpen, onOpen, onClose }: NavbarProps) {
             <Flex alignItems="center" justifyContent="center">
                 <ButtonGroup>
                     <Link href="https://discord.gg/MWhFyQkvhn" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: colors.gray }} icon={<FaDiscord fontSize="20px" />} />
+                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Discord" _hover={{ color: "#808080" }} icon={<FaDiscord fontSize="20px" />} />
                     </Link>
                     <Link href="https://twitter.com/CryptoPans" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: colors.gray }} icon={<FaTwitter fontSize="20px" />} />
+                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
                     </Link>
                     <Link href="https://instagram.com/" isExternal>
-                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: colors.gray }} icon={<FaInstagram fontSize="20px" />} />
+                        <IconButton borderRadius="xl" color="white" bg="black" aria-label="Instagram" _hover={{ color: "#808080" }} icon={<FaInstagram fontSize="20px" />} />
                     </Link>
                     <Profile handleOpenModal={onOpen} />
                 </ButtonGroup>

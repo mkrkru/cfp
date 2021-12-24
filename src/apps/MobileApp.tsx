@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
-import { colors } from "../config";
 import "@fontsource/abeezee";
 
 export default function MobileApp() {
@@ -25,7 +24,7 @@ export default function MobileApp() {
                 Whether it's an experienced chef looking to delight a customer with an extravagant meal, or an amateur cooking homemade food, they all need good quality pans.
                 <br />
                 <br />
-                Company-manufacture-plant <Link href={"https://realpress.ru"} color={colors.gray} _hover={{ textDecoration: "none", borderBottom: "1px dotted #e0d16c" }} isExternal>realpress.ru</Link> together with CryptoFryingPans invites you to become a member of a unique project where fantasy is intertwined with reality, where familiar pans cook the most unusual dishes, where the pans themselves can be anything and anyone…
+                Company-manufacture-plant <Link href={"https://realpress.ru"} color={"#808080"} _hover={{ textDecoration: "none", borderBottom: "1px dotted #e0d16c" }} isExternal>realpress.ru</Link> together with CryptoFryingPans invites you to become a member of a unique project where fantasy is intertwined with reality, where familiar pans cook the most unusual dishes, where the pans themselves can be anything and anyone…
                 <br />
                 <br />
                 Join us and get your benefit!
