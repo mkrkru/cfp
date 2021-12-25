@@ -5,28 +5,30 @@ import Identicon from "./Identicon";
 import Icon from "../../../../public/metamask.png";
 import { useState } from "react";
 
-interface ProfileProps {
-    handleOpenModal: any;
-}
-
-export default function Profile({ handleOpenModal }: ProfileProps) {
+export default function Profile() {
     const { activateBrowserWallet, account } = useEthers();
     const toast = useToast();
     const etherBalance = useEtherBalance(account);
     const [ showCopiedTooltip, setShowCopiedTooltip ] = useState(false);
-    const handleShowCopiedTooltip = () => {
+
+    function handleShowCopiedTooltip() {
         setShowCopiedTooltip(true);
         setTimeout(() => setShowCopiedTooltip(false), 1000);
+    };
+
+    function login() {
+        activateBrowserWallet();
+        window.location.reload();
     };
 
     function handleConnectWallet() {
         // @ts-ignore
         window.ethereum
-            ? activateBrowserWallet()
+            ? login()
             : toast({
                 position: "bottom-right",
                 title: "Metamask not installed!",
-                description: `To install Metamask extension close this message.`,
+                description: ``,
                 status: "error",
                 duration: 9000,
                 isClosable: true,

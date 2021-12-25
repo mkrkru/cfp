@@ -1,5 +1,4 @@
 import {
-    useDisclosure,
     extendTheme,
     ChakraProvider,
     VStack,
@@ -15,7 +14,6 @@ import "@fontsource/abeezee";
 // import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 export default function LaptopApp() {
-    const { isOpen, onOpen, onClose } = useDisclosure();
     // const { scrollYProgress } = useViewportScroll();
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
@@ -23,7 +21,7 @@ export default function LaptopApp() {
             {/*<motion.img style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }} alt="" src={FirstImage} />*/}
 
             <Flex>
-                <Navbar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
+                <Navbar />
                 <img alt="" src={FirstImage} />
             </Flex>
 
