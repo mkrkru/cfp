@@ -36,7 +36,7 @@ export default function LaptopApp() {
                 Company-manufacture-plant <Link href={"https://realpress.ru"} color={"#808080"} _hover={{ textDecoration: "none", borderBottom: "1px dotted #e0d16c" }} isExternal>realpress.ru</Link> together with CryptoFryingPans invites you to become a member of a unique project where fantasy is intertwined with reality, where familiar pans cook the most unusual dishes, where the pans themselves can be anything and anyone…
                 <br />
                 <br />
-                Join us and get your benefit!
+                <Text fontWeight="bold">Join us and get your benefit!</Text>
             </Text>
             <Divider orientation="horizontal" w="80vh" />
 
