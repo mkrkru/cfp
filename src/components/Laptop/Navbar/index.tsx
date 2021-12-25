@@ -18,7 +18,6 @@ export function Navbar() {
                     </Link>
                     <Profile />
                 </ButtonGroup>
-                {/*<AccountModal isOpen={isOpen} onClose={onClose} />*/}
             </Flex>
         </Flex>
     </Flex>;

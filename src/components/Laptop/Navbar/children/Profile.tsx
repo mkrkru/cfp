@@ -40,25 +40,17 @@ export default function Profile() {
         <Box
             display="flex"
             alignItems="center"
-            pl={3}
-            pr={0.5}
             background="black"
             borderRadius="xl"
         >
-            <Text mr={2} color="white" fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color="white" />}</Text>
+            <Text ml={3} mr={2} color="white" fontSize="md">{etherBalance ? parseFloat(formatEther(etherBalance)).toFixed(3) + " ETH" : <Spinner color="white" />}</Text>
             <Tooltip isOpen={showCopiedTooltip} label="Copied!" bg="#aaaaaa">
                 <Button
                     onClick={handleShowCopiedTooltip}
-                    bg="#808080"
+                    bg={"#383838"}
                     border="1px solid transparent"
-                    _hover={{
-                        border: "1px",
-                        borderStyle: "solid",
-                        borderColor: "gray",
-                        backgroundColor: "gray"
-                    }}
                     borderRadius="xl"
-                    height="38px"
+                    _hover={{ backgroundColor: "#5d5d5d" }}
                 >
                     <Text color="white" fontSize="md" fontWeight="medium" mr="2">
                         {account &&

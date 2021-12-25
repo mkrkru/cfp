@@ -18,7 +18,9 @@ export default function MobileApp() {
                 <img alt="" src={FirstImage} />
             </Flex>
 
+            <br />
             <Title />
+            <br />
 
             <Text align="center" color="white" fontSize="50px" px={20}>
                 Whether it's an experienced chef looking to delight a customer with an extravagant meal, or an amateur cooking homemade food, they all need good quality pans.

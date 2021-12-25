@@ -11,21 +11,30 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
-// import { motion, useTransform, useViewportScroll } from "framer-motion";
 
 export default function LaptopApp() {
-    // const { scrollYProgress } = useViewportScroll();
-
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"} justify="center">
             {/*<motion.img style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }} alt="" src={FirstImage} />*/}
 
             <Flex>
                 <Navbar />
-                <img alt="" src={FirstImage} />
+                <div style={{ position: "relative" }}>
+                    <img src={FirstImage} alt="" />
+                    {/*<Button style={{*/}
+                    {/*    position: "absolute",*/}
+                    {/*    left: "53%",*/}
+                    {/*    top: "64%",*/}
+                    {/*    backgroundColor: "white",*/}
+                    {/*    width: "15%",*/}
+                    {/*    height: "13%",*/}
+                    {/*    transform: "rotate(-10deg)"*/}
+                    {/*}} onClick={onMint} />*/}
+                </div>
             </Flex>
 
             <Title />
+            <br />
 
             <Text align="center" color="white" fontSize="2xl" px={60}>
                 Whether it's an experienced chef looking to delight a customer with an extravagant meal, or an amateur cooking homemade food, they all need good quality pans.
