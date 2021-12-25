@@ -56,7 +56,7 @@ export const members = [
     {
         name: "Makarka",
         img: team4,
-        place: "Developer",
+        place: "Website Developer",
         telegram: "mkrkru"
     }
 ];

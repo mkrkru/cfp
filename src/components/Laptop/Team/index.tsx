@@ -15,7 +15,7 @@ export const Team = () => {
                 maxWidth: "50vh"
             }}>
                 <img style={{ borderRadius: "6px", pointerEvents: "none" }} src={x.img} alt="" />
-                <Text color="white" textAlign="center" fontSize="30px" my="2vh">{x.name}</Text>
+                <Text color="white" textAlign="center" fontSize="30px" my="2vh" fontWeight="bold">{x.name}</Text>
                 <Text color="white" style={{ fontWeight: "bolder", position: "absolute", left: "6vh", bottom: "6vh" }}>{x.place}</Text>
                 <Link href={`https://t.me/${x.telegram}`}><Text color="gray" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "6vh", bottom: "6vh" }}>@{x.telegram}</Text></Link>
             </Box>)}
