@@ -9,11 +9,21 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
-import { whitelist } from "../config";
 import "./mint/style.css";
 import onMint from "./mint/onMint";
+import { useEthers } from "@usedapp/core";
+import { useState } from "react";
+import axios from "axios";
 
 export default function MobileApp() {
+    const { account } = useEthers();
+    const [toDisplayMint, setMintDisplay] = useState(false);
+
+    (async () => {
+        const result = await axios.get("http://localhost:3002/list");
+        setMintDisplay(result.data.includes(`${account}`));
+    })();
+
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"}>
             <Flex>
@@ -26,7 +36,7 @@ export default function MobileApp() {
             <br />
 
             {// @ts-ignore
-                whitelist.includes(window.ethereum.selectedAddress)
+                toDisplayMint
                     ? <Button
                         className="mintButton"
                         style={{

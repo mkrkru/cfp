@@ -12,11 +12,21 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import onMint from "./mint/onMint";
-import { whitelist } from "../config";
+import axios from "axios";
 import "./mint/style.css";
 import "@fontsource/abeezee";
+import { useEthers } from "@usedapp/core";
+import { useState } from "react";
 
 export default function LaptopApp() {
+    const { account } = useEthers();
+    const [toDisplayMint, setMintDisplay] = useState(false);
+
+    (async () => {
+        const result = await axios.get("http://localhost:3002/list");
+        setMintDisplay(result.data.includes(`${account}`));
+    })();
+
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"} justify="center">
             {/*<motion.img style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }} alt="" src={FirstImage} />*/}
@@ -26,7 +36,7 @@ export default function LaptopApp() {
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" />
                     {// @ts-ignore
-                        whitelist.includes(window.ethereum.selectedAddress)
+                        toDisplayMint
                             ? <Button
                                 className="mintButton"
                                 style={{

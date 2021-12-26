@@ -60,7 +60,3 @@ export const members = [
         telegram: "mkrkru"
     }
 ];
-
-export const whitelist = [
-    "0x078f063ebb4a43c818cbdbfaf59f6023bb9ec927"
-];
