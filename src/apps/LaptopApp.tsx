@@ -23,6 +23,7 @@ export default function LaptopApp() {
     const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
+        // await axios.post("http://212.109.199.127:3002/list/add", { address: `${account}` });
         const result = await axios.get("http://localhost:3002/list");
         setMintDisplay(result.data.includes(`${account}`));
     })();
