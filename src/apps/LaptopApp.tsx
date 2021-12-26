@@ -12,6 +12,7 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import onMint from "./mint/onMint";
+import { whitelist } from "../config";
 import "@fontsource/abeezee";
 
 export default function LaptopApp() {
@@ -23,15 +24,18 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" />
-                    <Button style={{
-                        position: "absolute",
-                        left: "53%",
-                        top: "64%",
-                        backgroundColor: "white",
-                        width: "15%",
-                        height: "13%",
-                        transform: "rotate(-10deg)"
-                    }} onClick={onMint} />
+                    {// @ts-ignore
+                        whitelist.includes(window.ethereum.selectedAddress)
+                            ? <Button style={{
+                                position: "absolute",
+                                left: "53%",
+                                top: "64%",
+                                backgroundColor: "white",
+                                width: "15%",
+                                height: "13%",
+                                transform: "rotate(-10deg)"
+                            }} onClick={onMint} />
+                            : null}
                 </div>
             </Flex>
 

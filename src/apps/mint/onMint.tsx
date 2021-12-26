@@ -14,7 +14,6 @@ const randomorg = (min: number, max: number) => Math.floor(Math.random() * (max 
 
 export default async function onMint() {
     const all = await pinata.pinList({ status: 'pinned', pinSizeMin: 1000 });
-    console.log(all);
     const resNum = randomorg(0, all.count - 1);
 
     pinata.pinJSONToIPFS({
