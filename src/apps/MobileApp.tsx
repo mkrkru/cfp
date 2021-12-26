@@ -4,11 +4,14 @@ import {
     VStack,
     Text,
     Heading,
-    Divider, Link, Flex
+    Divider, Link, Flex, Button
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
+import { whitelist } from "../config";
+import "./mint/style.css";
+import onMint from "./mint/onMint";
 
 export default function MobileApp() {
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
@@ -20,6 +23,20 @@ export default function MobileApp() {
 
             <br />
             <Title />
+            <br />
+
+            {// @ts-ignore
+                whitelist.includes(window.ethereum.selectedAddress)
+                    ? <Button
+                        className="mintButton"
+                        style={{
+                            backgroundColor: "white",
+                            width: "20vh",
+                            height: "10vh"
+                        }}
+                        onClick={onMint} />
+                    : null}
+
             <br />
 
             <Text align="center" color="white" fontSize="50px" px={20}>

@@ -13,6 +13,7 @@ import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components
 import FirstImage from "../public/first.png";
 import onMint from "./mint/onMint";
 import { whitelist } from "../config";
+import "./mint/style.css";
 import "@fontsource/abeezee";
 
 export default function LaptopApp() {
@@ -26,15 +27,17 @@ export default function LaptopApp() {
                     <img src={FirstImage} alt="" />
                     {// @ts-ignore
                         whitelist.includes(window.ethereum.selectedAddress)
-                            ? <Button style={{
-                                position: "absolute",
-                                left: "53%",
-                                top: "64%",
-                                backgroundColor: "white",
-                                width: "15%",
-                                height: "13%",
-                                transform: "rotate(-10deg)"
-                            }} onClick={onMint} />
+                            ? <Button
+                                className="mintButton"
+                                style={{
+                                    position: "absolute",
+                                    left: "53%",
+                                    top: "64%",
+                                    backgroundColor: "white",
+                                    width: "15%",
+                                    height: "13%"
+                                }}
+                                onClick={onMint} />
                             : null}
                 </div>
             </Flex>

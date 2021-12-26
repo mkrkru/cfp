@@ -1,0 +1,11 @@
+.mintButton {
+    animation: switchRot 0.9s infinite;
+}
+
+@keyframes switchRot {
+    0% { transform: rotate(-6deg); }
+    49% { transform: rotate(-6deg); }
+    50% { transform: rotate(-2deg); }
+    99% { transform: rotate(-2deg); }
+    100% { transform: rotate(-6deg); }
+}
