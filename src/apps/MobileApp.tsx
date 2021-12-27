@@ -4,25 +4,25 @@ import {
     VStack,
     Text,
     Heading,
-    Divider, Link, Flex, Button
+    Divider, Link, Flex
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import "./mint/style.css";
-import onMint from "./mint/onMint";
+/* import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
-import axios from "axios";
+import axios from "axios"; */
 
 export default function MobileApp() {
-    const { account } = useEthers();
+    /* const { account } = useEthers();
     const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
         const result = await axios.get("http://localhost:3002/list");
         setMintDisplay(result.data.includes(`${account}`));
-    })();
+    })(); */
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"}>
@@ -35,7 +35,7 @@ export default function MobileApp() {
             <Title />
             <br />
 
-            {// @ts-ignore
+            {/* // @ts-ignore
                 toDisplayMint
                     ? <Button
                         className="mintButton"
@@ -45,7 +45,7 @@ export default function MobileApp() {
                             height: "10vh"
                         }}
                         onClick={onMint} />
-                    : null}
+                    : null */}
 
             <br />
 

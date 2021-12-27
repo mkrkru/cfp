@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 import { nfts } from "../../../config";
 
 export function NftCarousel() {
-    return <Marquee gradient={false} speed={100}>
+    return <Marquee gradient={false} speed={110}>
         {nfts.map(x => <img
             style={{
                 borderRadius: "8px",

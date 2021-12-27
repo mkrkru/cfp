@@ -6,27 +6,24 @@ import {
     Heading,
     Divider,
     Link,
-    Flex,
-    Button
+    Flex
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
-import onMint from "./mint/onMint";
+/* import onMint from "./mint/onMint";
 import axios from "axios";
-import "./mint/style.css";
-import "@fontsource/abeezee";
 import { useEthers } from "@usedapp/core";
-import { useState } from "react";
+import { useState } from "react"; */
 
 export default function LaptopApp() {
-    const { account } = useEthers();
+    /* const { account } = useEthers();
     const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
         // await axios.post("http://212.109.199.127:3002/list/add", { address: `${account}` });
         const result = await axios.get("http://localhost:3002/list");
         setMintDisplay(result.data.includes(`${account}`));
-    })();
+    })(); */
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"} justify="center">
@@ -36,7 +33,7 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" />
-                    {// @ts-ignore
+                    {/* // @ts-ignore
                         toDisplayMint
                             ? <Button
                                 className="mintButton"
@@ -49,7 +46,7 @@ export default function LaptopApp() {
                                     height: "13%"
                                 }}
                                 onClick={onMint} />
-                            : null}
+                            : null */}
                 </div>
             </Flex>
 

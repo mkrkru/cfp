@@ -1,7 +1,7 @@
 import { ButtonGroup, Flex, IconButton, Link } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
-import Profile from "./children/Profile";
+// import Profile from "./children/Profile";
 
 export function Navbar() {
     return <Flex flexDirection="column" px="2vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
@@ -15,7 +15,7 @@ export function Navbar() {
                     <Link href="https://twitter.com/CryptoPans" isExternal>
                         <IconButton borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
                     </Link>
-                    <Profile />
+                    {/*<Profile />*/}
                 </ButtonGroup>
             </Flex>
         </Flex>
