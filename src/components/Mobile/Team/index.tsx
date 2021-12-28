@@ -11,9 +11,9 @@ export const Team = () => {
             justifyContent: "center",
             flexDirection: "column",
             maxWidth: "84vw",
-            minHeight: "74vh"
+            minHeight: "76vh"
         }}>
-            <img style={{ borderRadius: "6px", pointerEvents: "none", margin: "-6vh 0 0vh 0" }} src={x.img} alt="" />
+            <img style={{ borderRadius: "6px", pointerEvents: "none", margin: "-4vh 0 2vh 0" }} src={x.img} alt="" />
             <Text color="white" textAlign="center" fontSize="80px" fontWeight="bold">{x.name}</Text>
             <Text color="white" fontSize="40px" style={{ fontWeight: "bolder", position: "absolute", left: "4vw", bottom: "3vh" }}>{x.place}</Text>
             <Link href={`https://t.me/${x.telegram}`}><Text color="gray" fontSize="40px" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "4vw", bottom: "3vh" }}>@{x.telegram}</Text></Link>

@@ -2,7 +2,6 @@ pre {
     animation: color-change 90s infinite;
     pointer-events: none;
     transition: all .1s ease;
-    fontSize: 20px;
 }
 
 @keyframes color-change {
