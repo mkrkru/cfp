@@ -28,7 +28,7 @@ export default function MobileApp() {
         <VStack spacing={24} pb={24} bg={"#000000"}>
             <Flex>
                 <Navbar />
-                <img alt="" src={FirstImage} />
+                <img alt="" src={FirstImage} style={{ pointerEvents: "none" }} />
             </Flex>
 
             <br />

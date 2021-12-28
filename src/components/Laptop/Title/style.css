@@ -1,5 +1,9 @@
 pre {
+    transition: all .1s ease;
+    font-size: 12px;
+    margin-top: 20vh;
     animation: color-change 90s infinite;
+    pointer-events: none;
 }
 
 @keyframes color-change {

@@ -1,10 +1,7 @@
 import "./style.css";
 
 export function Title() {
-    return <pre style={{
-        transition: "all .1s ease",
-        fontSize: "20px"
-    }}>{
+    return <pre>{
 ` █████╗ ██████╗ ██╗   ██╗██████╗ ████████╗ █████╗ 
 ██╔══██╗██╔══██╗╚██╗ ██╔╝██╔══██╗╚══██╔══╝██╔══██╗
 ██║  ╚═╝██████╔╝ ╚████╔╝ ██████╔╝   ██║   ██║  ██║

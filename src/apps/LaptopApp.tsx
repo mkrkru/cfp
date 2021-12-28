@@ -33,7 +33,7 @@ export default function LaptopApp() {
             <Flex>
                 <Navbar />
                 <div style={{ position: "relative" }}>
-                    <img src={FirstImage} alt="" />
+                    <img src={FirstImage} alt="" style={{ pointerEvents: "none" }} />
                     <img
                         style={{
                             position: "absolute",
