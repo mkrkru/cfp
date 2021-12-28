@@ -27,7 +27,7 @@ export const members = [
         name: "Alina",
         img: team2,
         place: "Illustrator",
-        telegram: "Alinaart"
+        telegram: "Alinaaart"
     },
     {
         name: "Porshen",
