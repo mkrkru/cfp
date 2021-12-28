@@ -10,13 +10,14 @@ import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import "./mint/style.css";
+import axios from "axios";
 /* import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
 import axios from "axios"; */
 
 export default function MobileApp() {
-    fetch("https://localhost:3002/views/add/mobile");
+    axios.get("http://localhost:3002/views/add/mobile");
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
     /* const { account } = useEthers();
     const [toDisplayMint, setMintDisplay] = useState(false);
