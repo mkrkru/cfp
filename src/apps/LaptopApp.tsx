@@ -53,7 +53,7 @@ export default function LaptopApp() {
             <Title />
             <br />
 
-            <Text align="center" color="white" fontSize="2xl" px={60}>
+            <Text align="center" color="white" fontSize="3xl" px={60}>
                 Whether it's an experienced chef looking to delight a customer with an extravagant meal, or an amateur cooking homemade food, they all need good quality pans.
                 <br />
                 <br />
@@ -68,8 +68,11 @@ export default function LaptopApp() {
             <NftCarousel />
             <br />
 
-            <Text align="center" color="white" fontSize="2xl" px={40}>
-                CFP is a collection of 100 Frying Pan NFTs—unique digital collectibles living on the Ethereum blockchain Hundreds of unique custom pans are waiting for you with unexpected objects in it, each of which is hand-drawn and does not have a copy.
+            <Text align="center" color="white" fontSize="3xl" px={60}>
+                CFP is a collection of Frying Pans NFTs (unique digital collectibles living on the Ethereum blockchain).
+                <br />
+                <br />
+                Here you will find unique custom NFTs drawn in single copies and also generative pans NFTs that will surprise you with variety and unexpected details! Even if you think frying pans is a boring topic for housewives, our project will change your mind!
             </Text>
             <br />
             <Divider orientation="horizontal" w="80vh" />

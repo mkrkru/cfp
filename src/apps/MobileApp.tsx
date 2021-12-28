@@ -65,7 +65,10 @@ export default function MobileApp() {
             <br />
 
             <Text align="center" color="white" fontSize="50px" px={20}>
-                CFP is a collection of 100 Frying Pan NFTs—unique digital collectibles living on the Ethereum blockchain Hundreds of unique custom pans are waiting for you with unexpected objects in it, each of which is hand-drawn and does not have a copy.
+                CFP is a collection of Frying Pans NFTs (unique digital collectibles living on the Ethereum blockchain).
+                <br />
+                <br />
+                Here you will find unique custom NFTs drawn in single copies and also generative pans NFTs that will surprise you with variety and unexpected details! Even if you think frying pans is a boring topic for housewives, our project will change your mind!
             </Text>
             <br />
             <Divider orientation="horizontal" w="30vh" />
