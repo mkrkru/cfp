@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
+import Sticker from "../public/sticker1.png";
 /* import onMint from "./mint/onMint";
 import axios from "axios";
 import { useEthers } from "@usedapp/core";
@@ -33,6 +34,16 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" />
+                    <img
+                        style={{
+                            position: "absolute",
+                            left: "54%",
+                            top: "54%",
+                            width: "14%"
+                        }}
+                        alt=""
+                        src={Sticker}
+                    />
                     {/* // @ts-ignore
                         true
                             ? <Button
