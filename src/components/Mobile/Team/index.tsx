@@ -11,7 +11,7 @@ export const Team = () => {
             justifyContent: "center",
             flexDirection: "column",
             maxWidth: "84vw",
-            minHeight: "70vh"
+            minHeight: "74vh"
         }}>
             <img style={{ borderRadius: "6px", pointerEvents: "none", margin: "-6vh 0 0vh 0" }} src={x.img} alt="" />
             <Text color="white" textAlign="center" fontSize="80px" fontWeight="bold">{x.name}</Text>
