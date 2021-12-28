@@ -17,6 +17,7 @@ import { useEthers } from "@usedapp/core";
 import { useState } from "react"; */
 
 export default function LaptopApp() {
+    if (window.location.protocol != 'https:') window.location.href = window.location.href.replace("http://", "https://");
     /* const { account } = useEthers();
     const [toDisplayMint, setMintDisplay] = useState(false);
 

@@ -16,6 +16,7 @@ import { useState } from "react";
 import axios from "axios"; */
 
 export default function MobileApp() {
+    if (window.location.protocol != 'https:') window.location.href = window.location.href.replace("http://", "https://");
     /* const { account } = useEthers();
     const [toDisplayMint, setMintDisplay] = useState(false);
 
