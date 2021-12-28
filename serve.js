@@ -10,6 +10,6 @@ require('https')
     }, app)
     .listen(443, () => console.log('Running at https://localhost'));
 
-require('http')
+/* require('http')
     .createServer(app)
-    .listen(80, () => console.log('Running at http://localhost'));
+    .listen(80, () => console.log('Running at http://localhost')); */
