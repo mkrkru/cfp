@@ -16,7 +16,7 @@ export const Team = () => {
             <img style={{ borderRadius: "6px", pointerEvents: "none", margin: "-4vh 0 2vh 0" }} src={x.img} alt="" />
             <Text color="white" textAlign="center" fontSize="80px" fontWeight="bold">{x.name}</Text>
             <Text color="white" fontSize="40px" style={{ fontWeight: "bolder", position: "absolute", left: "4vw", bottom: "3vh" }}>{x.place}</Text>
-            <Link href={`https://t.me/${x.telegram}`}><Text color="gray" fontSize="40px" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "4vw", bottom: "3vh" }}>@{x.telegram}</Text></Link>
+            <Link href={`https://t.me/${x.telegram}`} isExternal><Text color="gray" fontSize="40px" _hover={{ cursor: "pointer", textDecoration: "underline" }} style={{ fontWeight: "bolder", position: "absolute", right: "4vw", bottom: "3vh" }}>@{x.telegram}</Text></Link>
         </Box>)}
     </SimpleGrid>;
 };
