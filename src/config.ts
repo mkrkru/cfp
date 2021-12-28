@@ -24,10 +24,10 @@ export const nfts = [Nft1, Nft2, Nft3, Nft4, Nft5, Nft6, Nft7, Nft8, Nft9];
 
 export const members = [
     {
-        name: "Hudozhnik",
+        name: "Alina",
         img: team2,
         place: "Illustrator",
-        telegram: ""
+        telegram: "Alinaart"
     },
     {
         name: "Porshen",

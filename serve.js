@@ -1,10 +1,11 @@
 const fs = require("fs");
+const { join } = require("path");
 const app = (request, response) => require('serve-handler')(request, response, { public: "build" });
 
 require('https')
     .createServer({
-        cert: fs.readFileSync('./certs/certificate.pem'),
-        ca: fs.readFileSync('./certs/certificate_ca.pem')
+        cert: fs.readFileSync(join(__dirname, "certs", "certificate.crt")),
+        ca: fs.readFileSync(join(__dirname, "certs", "certificate_ca.crt"))
     }, app)
     .listen(443, () => console.log('Running at https://localhost'));
 
