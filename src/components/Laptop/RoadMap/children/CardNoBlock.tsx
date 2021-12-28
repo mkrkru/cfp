@@ -17,7 +17,7 @@ export default function CardNoBlock({ image, text, phase }: CardNoBlockProps) {
             >
                 <img style={{ borderRadius: "6px", pointerEvents: "none", width: 1620 / 4, height: 2160 / 4, marginRight: "4vh" }} src={image} alt="" />
                 <Heading color="white" as="h3" mx="6vh">Phase {phase}</Heading>
-                <Text maxW="50vh" color="white" fontSize="2xl">{text}</Text>
+                <Text maxW="50vh" color="white" fontSize="28px">{text}</Text>
             </Flex>
         </Fade>
         : <Fade right>
@@ -27,7 +27,7 @@ export default function CardNoBlock({ image, text, phase }: CardNoBlockProps) {
                alignItems="center"
            >
                <Heading color="white" as="h3">Phase {phase}</Heading>
-               <Text mx="4vh" maxW="50vh" color="white" fontSize="2xl">{text}</Text>
+               <Text mx="4vh" maxW="50vh" color="white" fontSize="28px">{text}</Text>
                <img style={{ borderRadius: "6px", pointerEvents: "none", width: 1620 / 4, height: 2160 / 4 }} src={image} alt="" />
            </Flex>
        </Fade>;

@@ -34,7 +34,7 @@ export default function LaptopApp() {
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" />
                     {/* // @ts-ignore
-                        toDisplayMint
+                        true
                             ? <Button
                                 className="mintButton"
                                 style={{

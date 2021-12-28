@@ -9,7 +9,8 @@ export function NftCarousel() {
                 width: "300px",
                 height: "300px",
                 marginLeft: "20px",
-                transition: "all .2s ease-in-out"
+                transition: "all .2s ease-in-out",
+                pointerEvents: "none"
             }}
             src={x}
             alt=""

@@ -8,7 +8,8 @@ export function NftCarousel() {
                 borderRadius: "8px",
                 width: "650px",
                 height: "650px",
-                marginLeft: "20px"
+                marginLeft: "20px",
+                pointerEvents: "none"
             }}
             src={x}
             alt=""

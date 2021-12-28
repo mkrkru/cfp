@@ -3,9 +3,8 @@ const app = (request, response) => require('serve-handler')(request, response, {
 
 require('https')
     .createServer({
-        key: fs.readFileSync('./certs/private.key'),
         cert: fs.readFileSync('./certs/certificate.crt'),
-        ca: fs.readFileSync('./certs/ca_bundle.crt')
+        ca: fs.readFileSync('./certs/certificate_cr.crt')
     }, app)
     .listen(443, () => console.log('Running at https://localhost'));
 
