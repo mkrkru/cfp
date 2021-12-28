@@ -8,9 +8,9 @@ import Nft7 from "./public/nft7.png";
 import Nft8 from "./public/nft8.png";
 import Nft9 from "./public/nft9.png";
 import team1 from "./public/team1.png";
-  import team4 from "./public/team1.png";
 import team2 from "./public/team2.png";
 import team3 from "./public/team3.png";
+import team4 from "./public/team4.png";
 
 export const phases = [
     "Fire up the stove! Warming up the audience! Contests, giveaways, lotteries! Website and Discord creation!",
