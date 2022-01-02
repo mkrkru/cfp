@@ -1,13 +1,11 @@
 // import pinataSDK from '@pinata/sdk';
 // const pinata = pinataSDK('08d0ea34d82743359669', '29cac61ba50e631b1dc6ae40fc64a294417d8e84732a8083b93b70a0fe63cdca');
+import * as dotenv from "dotenv";
 import contractABI from "./contract-abi.json";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 
-const minting = {
-    ALCHEMY_KEY: "https://eth-ropsten.alchemyapi.io/v2/uMnfAGW5bD8JCiHxzXpyENtBJao_AjHe",
-    CONTRACT_ADDRESS: "0x9Fb8e4Ce6b7A223aeEAE31d5c8c0F1101C5023c6",
-    PRIVATE_KEY: "84036a8cb8da31395f331c1028811c1772f72714623ce766b9ec4f9922a74ba9"
-};
+dotenv.config();
+const minting = process.env;
 const Alchemy = createAlchemyWeb3(minting.ALCHEMY_KEY);
 const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 const resMeta = `https://gateway.pinata.cloud/ipfs/QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
