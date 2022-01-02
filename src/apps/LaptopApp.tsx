@@ -12,7 +12,6 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import Sticker from "../public/sticker1.png";
-import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 /* import axios from "axios";
 import { useState } from "react"; */
