@@ -6,24 +6,21 @@ import {
     Heading,
     Divider,
     Link,
-    Flex
+    Flex,
+    Button
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import Sticker from "../public/sticker1.png";
-import { useEffect } from "react";
-/* import onMint from "./mint/onMint";
-import axios from "axios";
+import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
+/* import axios from "axios";
 import { useState } from "react"; */
 
 export default function LaptopApp() {
-    useEffect(() => {
-        fetch("http://localhost:3002/views/add/pc");
-    }, []);
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
-    /* const { account } = useEthers();
-    const [toDisplayMint, setMintDisplay] = useState(false);
+    const { account } = useEthers();
+    /* const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
         // await axios.post("http://212.109.199.127:3002/list/add", { address: `${account}` });

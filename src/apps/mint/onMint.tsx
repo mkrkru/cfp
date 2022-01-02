@@ -1,44 +1,36 @@
+// import pinataSDK from '@pinata/sdk';
+// const pinata = pinataSDK('08d0ea34d82743359669', '29cac61ba50e631b1dc6ae40fc64a294417d8e84732a8083b93b70a0fe63cdca');
 import contractABI from "./contract-abi.json";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
-import pinataSDK from '@pinata/sdk';
 
-const pinata = pinataSDK('08d0ea34d82743359669', '29cac61ba50e631b1dc6ae40fc64a294417d8e84732a8083b93b70a0fe63cdca');
-
-const NETWORK = "ropsten";
 const minting = {
-    ALCHEMY_KEY: `https://eth-${NETWORK}.alchemyapi.io/v2/uMnfAGW5bD8JCiHxzXpyENtBJao_AjHe`,
-    CONTRACT_ADDRESS: "0x9Fb8e4Ce6b7A223aeEAE31d5c8c0F1101C5023c6"
+    ALCHEMY_KEY: "https://eth-ropsten.alchemyapi.io/v2/uMnfAGW5bD8JCiHxzXpyENtBJao_AjHe",
+    CONTRACT_ADDRESS: "0x9Fb8e4Ce6b7A223aeEAE31d5c8c0F1101C5023c6",
+    PRIVATE_KEY: "84036a8cb8da31395f331c1028811c1772f72714623ce766b9ec4f9922a74ba9"
 };
 const Alchemy = createAlchemyWeb3(minting.ALCHEMY_KEY);
-const randomorg = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
+const resMeta = `https://gateway.pinata.cloud/ipfs/QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
 
-export default async function onMint() {
-    const all = await pinata.pinList({ status: 'pinned', pinSizeMin: 1000 });
-    const resNum = randomorg(0, all.count - 1);
+export default async function onMint(account: string) {
+    const Contract = await new Alchemy.eth.Contract(contractABI, minting.CONTRACT_ADDRESS);
+    const tx = {
+        from: account,
+        to: minting.CONTRACT_ADDRESS,
+        gas: "21000",
+        value: "0x7c585087238000", // 0.035 - 0x7c585087238000 ; 0.07 - 0xf8b0a10e470000
+        data: Contract.methods.mintNFT(account, resMeta).encodeABI()
+    };
 
-    pinata.pinJSONToIPFS({
-        image: `https://gateway.pinata.cloud/ipfs/${all.rows[resNum]["ipfs_pin_hash"]}`,
-        name: `Crypto Frying Pan ${resNum + 1}`,
-        description: "CFP - definitely should be in your collection. Take one and please Mom with a new frying pan."
-    })
-        .then(async (rx: any) => {
-            console.log(rx);
+    // @ts-ignore
+    window.ethereum.request({ method: "eth_sendTransaction", params: [tx] }).then((rx: any) => {
+        console.log(`https://ropsten.etherscan.io/tx/${rx}`);
+        console.log(resMeta);
+    });
 
-            // @ts-ignore
-            window.contract = await new Alchemy.eth.Contract(contractABI, minting.CONTRACT_ADDRESS);
-
-            // @ts-ignore
-            window.ethereum.request({
-                method: "eth_sendTransaction",
-                params: [{
-                    gas: "21000", // @ts-ignore
-                    from: window.ethereum.selectedAddress,
-                    to: minting.CONTRACT_ADDRESS, // @ts-ignore
-                    data: window.contract.methods.mintNFT(window.ethereum.selectedAddress, `https://gateway.pinata.cloud/ipfs/${rx.IpfsHash}`).encodeABI()
-                }]
-            })
-                .then((txHash: any) => window.open(`https://${NETWORK}.etherscan.io/tx/${txHash}`))
-                .catch(console.error);
+    /* Alchemy.eth.accounts.signTransaction(tx, minting.PRIVATE_KEY)
+        .then((signedTx: any) => {
+            Alchemy.eth.sendSignedTransaction(signedTx.rawTransaction, (err: any, hash: any) => console.log(err ? err : hash));
         })
-        .catch(alert);
-}
+        .catch((err: any) => console.log("Promise failed:", err)); */
+};

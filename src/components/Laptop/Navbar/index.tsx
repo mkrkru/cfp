@@ -1,7 +1,7 @@
 import { ButtonGroup, Flex, IconButton, Link } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
-// import Profile from "./children/Profile";
+import Profile from "./children/Profile";
 
 export function Navbar() {
     return <Flex flexDirection="column" pl="2vh" pr="4vh" style={{ position: "absolute", width: "100%", zIndex: 1000 }}>
