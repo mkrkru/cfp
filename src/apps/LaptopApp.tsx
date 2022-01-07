@@ -23,8 +23,7 @@ export default function LaptopApp() {
     /* const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
-        // await axios.post("http://212.109.199.127:3002/list/add", { address: `${account}` });
-        const result = await axios.get("http://localhost:3002/list");
+        const result = await axios.get("https://localhost:3002/list?key=");
         setMintDisplay(result.data.includes(`${account}`));
     })(); */
 
@@ -47,7 +46,7 @@ export default function LaptopApp() {
                         src={Sticker}
                     />
                     {// @ts-ignore
-                        true
+                        process.env.REACT_APP_MINT === "true"
                             ? <Button
                                 className="mintButton"
                                 style={{

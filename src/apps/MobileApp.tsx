@@ -4,24 +4,24 @@ import {
     VStack,
     Text,
     Heading,
-    Divider, Link, Flex
+    Divider, Link, Flex, Button
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import "./mint/style.css";
-/* import onMint from "./mint/onMint";
+import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
-import { useState } from "react";
+/* import { useState } from "react";
 import axios from "axios"; */
 
 export default function MobileApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
-    /* const { account } = useEthers();
-    const [toDisplayMint, setMintDisplay] = useState(false);
+    const { account } = useEthers();
+    /* const [toDisplayMint, setMintDisplay] = useState(false);
 
     (async () => {
-        const result = await axios.get("http://localhost:3002/list");
+        const result = await axios.get("http://localhost:3002/list?key=");
         setMintDisplay(result.data.includes(`${account}`));
     })(); */
 
@@ -36,8 +36,8 @@ export default function MobileApp() {
             <Title />
             <br />
 
-            {/* // @ts-ignore
-                toDisplayMint
+            {// @ts-ignore
+                process.env.REACT_APP_MINT === "true"
                     ? <Button
                         className="mintButton"
                         style={{
@@ -45,8 +45,8 @@ export default function MobileApp() {
                             width: "20vh",
                             height: "10vh"
                         }}
-                        onClick={onMint} />
-                    : null */}
+                        onClick={() => onMint(account ? account : "")} />
+                    : null}
 
             <br />
 

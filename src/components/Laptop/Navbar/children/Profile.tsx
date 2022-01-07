@@ -18,7 +18,6 @@ export default function Profile() {
 
     function login() {
         activateBrowserWallet();
-        window.location.reload();
     };
 
     function handleConnectWallet() {

@@ -3,20 +3,15 @@
 import contractABI from "./contract-abi.json";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 
-const minting = {
-    ALCHEMY_KEY: "https://eth-rinkeby.alchemyapi.io/v2/uMnfAGW5bD8JCiHxzXpyENtBJao_AjHe",
-    CONTRACT_ADDRESS: "0x9Fb8e4Ce6b7A223aeEAE31d5c8c0F1101C5023c6",
-    PRIVATE_KEY: "84036a8cb8da31395f331c1028811c1772f72714623ce766b9ec4f9922a74ba9"
-};
-const Alchemy = createAlchemyWeb3(minting.ALCHEMY_KEY);
+const Alchemy = createAlchemyWeb3(process.env.REACT_APP_ALCHEMY_KEY);
 const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 const resMeta = `https://gateway.pinata.cloud/ipfs/QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
 
 export default async function onMint(account: string) {
-    const Contract = await new Alchemy.eth.Contract(contractABI, minting.CONTRACT_ADDRESS);
+    const Contract = await new Alchemy.eth.Contract(contractABI, process.env.REACT_APP_CONTRACT_ADDRESS);
     const tx = {
         from: account,
-        to: minting.CONTRACT_ADDRESS,
+        to: process.env.REACT_APP_CONTRACT_ADDRESS,
         gas: "21000",
         value: "0x7c585087238000", // 0.035 - 0x7c585087238000 ; 0.07 - 0xf8b0a10e470000
         data: Contract.methods.mintNFT(account, resMeta).encodeABI()
@@ -28,7 +23,7 @@ export default async function onMint(account: string) {
         console.log(resMeta);
     });
 
-    /* Alchemy.eth.accounts.signTransaction(tx, minting.PRIVATE_KEY)
+    /* Alchemy.eth.accounts.signTransaction(tx, process.env.REACT_APP_PRIVATE_KEY)
         .then((signedTx: any) => {
             Alchemy.eth.sendSignedTransaction(signedTx.rawTransaction, (err: any, hash: any) => console.log(err ? err : hash));
         })
