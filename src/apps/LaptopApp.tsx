@@ -12,6 +12,7 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import Sticker from "../public/sticker1.png";
+import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 /* import axios from "axios";
 import { useState } from "react"; */
@@ -45,7 +46,7 @@ export default function LaptopApp() {
                         alt=""
                         src={Sticker}
                     />
-                    {/* // @ts-ignore
+                    {// @ts-ignore
                         true
                             ? <Button
                                 className="mintButton"
@@ -57,8 +58,8 @@ export default function LaptopApp() {
                                     width: "15%",
                                     height: "13%"
                                 }}
-                                onClick={onMint} />
-                            : null */}
+                                onClick={() => onMint(account ? account : "")} />
+                            : null}
                 </div>
             </Flex>
 
