@@ -17,7 +17,7 @@ import { db } from "../db";
 import axios from "axios"; */
 
 export default function MobileApp() {
-    // if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
+    if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
     (async () => await db.mobile.add({ ua: navigator.userAgent }))();
     const { account } = useEthers();
     /* const [toDisplayMint, setMintDisplay] = useState(false);
