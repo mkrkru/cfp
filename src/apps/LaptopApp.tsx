@@ -21,7 +21,7 @@ import { db } from "../db";
 import { useState } from "react"; */
 
 export default function LaptopApp() {
-    if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
+    // if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
     (async () => await db.laptop.add({ ua: navigator.userAgent }))();
 
     const { account } = useEthers();
