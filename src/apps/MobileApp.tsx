@@ -12,11 +12,13 @@ import "@fontsource/abeezee";
 import "./mint/style.css";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
+import { db } from "../db";
 /* import { useState } from "react";
 import axios from "axios"; */
 
 export default function MobileApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
+    (async () => await db.mobile.add({ ua: navigator.userAgent }))();
     const { account } = useEthers();
     /* const [toDisplayMint, setMintDisplay] = useState(false);
 
