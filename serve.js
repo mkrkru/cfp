@@ -10,5 +10,7 @@ require('https')
     .listen(443, () => console.log('Running at https://localhost'));
 
 require('http')
-    .createServer((request, response) => require('serve-handler')(request, response, { public: "build" }))
+    .createServer((request, response) => require('serve-handler')(request, response, { redirects: [
+            { "source": "http://cryptofryingpans.com", "destination": "https://cryptofryingpans.com" }
+        ] }))
     .listen(80, () => console.log('Running at http://localhost'));
