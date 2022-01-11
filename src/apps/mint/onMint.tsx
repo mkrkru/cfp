@@ -12,14 +12,14 @@ export default async function onMint(account: string) {
     const tx = {
         from: account,
         to: process.env.REACT_APP_CONTRACT_ADDRESS,
-        gas: "21000",
-        value: "0x7c585087238000", // 0.035 - 0x7c585087238000 ; 0.07 - 0xf8b0a10e470000
+        gas: "30000",
+        maxFeePerGas: "1000000108",
+        value: `${0.035 * 1000000000000000000}`,
         data: Contract.methods.mintNFT(account, resMeta).encodeABI()
     };
 
-    // @ts-ignore
-    window.ethereum.request({ method: "eth_sendTransaction", params: [tx] }).then((rx: any) => {
-        console.log(`https://ropsten.etherscan.io/tx/${rx}`);
+    Alchemy.eth.sendTransaction(tx).then((rx: any) => {
+        console.log(`https://rinkeby.etherscan.io/tx/${rx}`);
         console.log(resMeta);
     });
 
