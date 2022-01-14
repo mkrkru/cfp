@@ -17,7 +17,8 @@ import "./mint/style.css";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { db } from "../db";
-/* import axios from "axios";
+/* import { wl } from "./mint/wl";
+import axios from "axios";
 import { useState } from "react"; */
 
 export default function LaptopApp() {
@@ -40,29 +41,25 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" style={{ pointerEvents: "none", width: window.innerWidth }} />
-                    <img
-                        style={{
-                            position: "absolute",
-                            left: "54%",
-                            top: "54%",
-                            width: "14%"
-                        }}
-                        alt=""
-                        src={Sticker}
-                    />
+                    {process.env.REACT_APP_MINT === "false" ? <img
+                                style={{
+                                    position: "absolute",
+                                    left: "54%",
+                                    top: "54%",
+                                    width: "14%"
+                                }}
+                                alt=""
+                                src={Sticker}
+                            /> : null}
                     {// @ts-ignore
-                        process.env.REACT_APP_MINT === "true"
+                        process.env.REACT_APP_MINT === "true" // && wl.includes(account)
                             ? <Button
-                                className="mintButton"
                                 style={{
                                     position: "absolute",
                                     left: "53%",
-                                    top: "64%",
-                                    backgroundColor: "white",
-                                    width: "15%",
-                                    height: "13%"
+                                    top: "64%"
                                 }}
-                                onClick={() => onMint(account ? account : "")} />
+                                onClick={() => account ? onMint(account) : null} />
                             : null}
                 </div>
             </Flex>

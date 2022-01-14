@@ -2,13 +2,13 @@
   {
     "inputs": [
       {
-        "internalType": "address",
+        "internalType": "to",
         "name": "recipient",
         "type": "address"
       },
       {
-        "internalType": "string",
-        "name": "tokenURI",
+        "internalType": "uri",
+        "name": "uri",
         "type": "string"
       }
     ],

@@ -3,9 +3,8 @@
 }
 
 @keyframes switchRot {
-    0% { transform: rotate(-6deg); }
-    49% { transform: rotate(-6deg); }
-    50% { transform: rotate(-2deg); }
-    99% { transform: rotate(-2deg); }
-    100% { transform: rotate(-6deg); }
+    0% { background-image: url(../../public/smint1.png); }
+    49% { background-image: url(../../public/smint1.png); }
+    50% { background-image: url(../../public/smint2.png); }
+    100% { background-image: url(../../public/smint2.png); }
 }

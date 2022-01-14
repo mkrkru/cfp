@@ -9,20 +9,24 @@ const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min
 const resMeta = `https://gateway.pinata.cloud/ipfs/QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
 
 export default async function onMint(account: string) {
-    const Contract = await new Alchemy.eth.Contract(contractABI, process.env.REACT_APP_CONTRACT_ADDRESS);
+    const Contract = await new Alchemy.eth.Contract(contractABI, "0x0d578BD2973D9A510Ef47f9ACA6661fAD170fEed");
     const tx = {
         from: account,
-        to: process.env.REACT_APP_CONTRACT_ADDRESS,
-        gas: "30000",
+        to: "0x0d578BD2973D9A510Ef47f9ACA6661fAD170fEed",
+        gas: "120000",
         // value: `${0.035 * 1000000000000000000}`,
         data: Contract.methods.mintNFT(account, resMeta).encodeABI()
     };
 
-    Alchemy.eth.sendTransaction(tx).then((rx: any) => {
-        window.open(`https://rinkeby.etherscan.io/tx/${rx.transactionHash}`);
+    // @ts-ignore
+    window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [tx]
+      }).then((rx: any) => {
+        window.open(`https://ropsten.etherscan.io/tx/${rx}`);
         console.log(rx);
         console.log(resMeta);
-    });
+    }).catch((error: any) => console.error(error))
 
     /* Alchemy.eth.accounts.signTransaction(tx, process.env.REACT_APP_PRIVATE_KEY)
         .then((signedTx: any) => {
