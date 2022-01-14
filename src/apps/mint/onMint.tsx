@@ -6,7 +6,7 @@ import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 
 const Alchemy = createAlchemyWeb3(process.env.REACT_APP_ALCHEMY_KEY);
 const rand = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
-const resMeta = `ipfs://QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
+const resMeta = `https://gateway.pinata.cloud/ipfs/QmPM3BrVj5A7dgq8oeX2MdZ7YxmvXvakC9WMpLaWAbvuAr/nft${rand(0, 100)}.json`;
 
 export default async function onMint(account: string) {
     const Contract = await new Alchemy.eth.Contract(contractABI, process.env.REACT_APP_CONTRACT_ADDRESS);
@@ -14,13 +14,13 @@ export default async function onMint(account: string) {
         from: account,
         to: process.env.REACT_APP_CONTRACT_ADDRESS,
         gas: "30000",
-        //value: `${0.035 * 1000000000000000000}`,
+        // value: `${0.035 * 1000000000000000000}`,
         data: Contract.methods.mintNFT(account, resMeta).encodeABI()
     };
 
     Alchemy.eth.sendTransaction(tx).then((rx: any) => {
+        window.open(`https://rinkeby.etherscan.io/tx/${rx.transactionHash}`);
         console.log(rx);
-        //console.log(`https://rinkeby.etherscan.io/tx/${rx}`);
         console.log(resMeta);
     });
 
