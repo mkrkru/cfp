@@ -16,14 +16,10 @@ export default function Profile() {
         setTimeout(() => setShowCopiedTooltip(false), 1000);
     };
 
-    function login() {
-        activateBrowserWallet();
-    };
-
     function handleConnectWallet() {
         // @ts-ignore
         window.ethereum
-            ? login()
+            ? activateBrowserWallet()
             : toast({
                 position: "bottom-right",
                 title: "Metamask not installed!",

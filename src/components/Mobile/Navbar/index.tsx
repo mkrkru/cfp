@@ -5,7 +5,6 @@ import {
     ButtonGroup
 } from '@chakra-ui/react';
 import Icon from "../../../public/icon.png";
-// import Profile from "./children/Profile";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
 
 export function Navbar() {
@@ -19,7 +18,6 @@ export function Navbar() {
                 <Link href="https://twitter.com/CryptoPans" isExternal>
                     <IconButton style={{ transform: "scale(2.5)" }} borderRadius="xl" color="white" bg="black" aria-label="Twitter" _hover={{ color: "#808080" }} icon={<FaTwitter fontSize="20px" />} />
                 </Link>
-                {/*<Profile />*/}
             </ButtonGroup>
         </Flex>
     </Flex>;

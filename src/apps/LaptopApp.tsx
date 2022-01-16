@@ -17,21 +17,11 @@ import "./mint/style.css";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { db } from "../db";
-/* import { wl } from "./mint/wl";
-import axios from "axios";
-import { useState } from "react"; */
 
 export default function LaptopApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
     (async () => await db.laptop.add({ ua: navigator.userAgent }))();
-
     const { account } = useEthers();
-    /* const [toDisplayMint, setMintDisplay] = useState(false);
-
-    (async () => {
-        const result = await axios.get("https://localhost:3002/list?key=");
-        setMintDisplay(result.data.includes(`${account}`));
-    })(); */
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"} justify="center">
@@ -41,26 +31,20 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" style={{ pointerEvents: "none", width: window.innerWidth }} />
-                    {process.env.REACT_APP_MINT === "false" ? <img
-                                style={{
-                                    position: "absolute",
-                                    left: "54%",
-                                    top: "54%",
-                                    width: "14%"
-                                }}
-                                alt=""
-                                src={Sticker}
-                            /> : null}
-                    {// @ts-ignore
-                        process.env.REACT_APP_MINT === "true" // && wl.includes(account)
-                            ? <Button
-                                style={{
-                                    position: "absolute",
-                                    left: "53%",
-                                    top: "64%"
-                                }}
-                                onClick={() => account ? onMint(account) : null} />
-                            : null}
+                    <img
+                        style={{
+                            position: "absolute",
+                            left: "54%",
+                            top: "54%",
+                            width: "14%"
+                        }}
+                        alt=""
+                        src={Sticker}
+                    />
+                    <Button
+                        as="div"
+                        onClick={() => account ? onMint(account) : null}
+                    />
                 </div>
             </Flex>
 

@@ -4,28 +4,19 @@ import {
     VStack,
     Text,
     Heading,
-    Divider, Link, Flex, Button
+    Divider,
+    Link,
+    Flex
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import "./mint/style.css";
-import onMint from "./mint/onMint";
-import { useEthers } from "@usedapp/core";
 import { db } from "../db";
-/* import { useState } from "react";
-import axios from "axios"; */
 
 export default function MobileApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
     (async () => await db.mobile.add({ ua: navigator.userAgent }))();
-    const { account } = useEthers();
-    /* const [toDisplayMint, setMintDisplay] = useState(false);
-
-    (async () => {
-        const result = await axios.get("http://localhost:3002/list?key=");
-        setMintDisplay(result.data.includes(`${account}`));
-    })(); */
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"}>
@@ -37,19 +28,6 @@ export default function MobileApp() {
             <br />
             <Title />
             <br />
-
-            {// @ts-ignore
-                process.env.REACT_APP_MINT === "true"
-                    ? <Button
-                        className="mintButton"
-                        style={{
-                            backgroundColor: "white",
-                            width: "20vh",
-                            height: "10vh"
-                        }}
-                        onClick={() => onMint(account ? account : "")} />
-                    : null}
-
             <br />
 
             <Text align="center" color="white" fontSize="50px" px={20}>
