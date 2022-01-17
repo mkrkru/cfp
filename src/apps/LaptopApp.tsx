@@ -17,6 +17,7 @@ import { useEthers } from "@usedapp/core";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import sticker1 from "../public/mint.gif";
+import { wl } from "./mint/wl";
 
 export default function LaptopApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
@@ -24,10 +25,7 @@ export default function LaptopApp() {
     const { account } = useEthers();
 
     useEffect(() => {
-        (async () => {
-            const allwl = await axios.get("http://localhost:3002/wl");
-            setAllowMint(allwl.data.includes(account));
-        })();
+        setAllowMint(wl.includes(account ? account : ""));
     }, [account]);
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
