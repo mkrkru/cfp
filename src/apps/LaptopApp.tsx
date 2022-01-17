@@ -14,7 +14,6 @@ import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
-import { db } from "../db";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import sticker1 from "../public/mint.gif";
@@ -26,7 +25,6 @@ export default function LaptopApp() {
 
     useEffect(() => {
         (async () => {
-            await db.laptop.add({ ua: navigator.userAgent });
             const allwl = await axios.get(window.location.href.includes("cryptofryingpans") ? "https://localhost:3002/wl" : "http://localhost:3002/wl");
             setAllowMint(allwl.data.includes(account));
         })();

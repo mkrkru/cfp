@@ -11,11 +11,9 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
-import { db } from "../db";
 
 export default function MobileApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
-    (async () => await db.mobile.add({ ua: navigator.userAgent }))();
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={24} bg={"#000000"}>
@@ -63,6 +61,11 @@ export default function MobileApp() {
             <Heading fontStyle="italic" color="white" fontSize="80px" textAlign="center">Team</Heading>
             <br />
             <Team />
+
+            <br />
+            <br />
+            <Text color="white" mt="20px" fontSize="40px" fontWeight="bolder">Verified Contract Address</Text>
+            <Link fontSize="34px" href="https://etherscan.io/address/0xF48549f4969565b6c87788D6312EF648Db864e89" color="green">0xF48549f4969565b6c87788D6312EF648Db864e89</Link>
         </VStack>
 
         <Footer />
