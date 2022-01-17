@@ -7,47 +7,52 @@ import {
     Divider,
     Link,
     Flex,
-    Button
+    Image
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
-import Sticker from "../public/sticker1.png";
 import "@fontsource/abeezee";
-import "./mint/style.css";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { db } from "../db";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import sticker1 from "../public/mint.gif";
 
 export default function LaptopApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
-    (async () => await db.laptop.add({ ua: navigator.userAgent }))();
+    const [allowMint, setAllowMint] = useState(false);
     const { account } = useEthers();
 
+    useEffect(() => {
+        (async () => {
+            await db.laptop.add({ ua: navigator.userAgent });
+            const allwl = await axios.get(window.location.href.includes("cryptofryingpans") ? "https://localhost:3002/wl" : "http://localhost:3002/wl");
+            setAllowMint(allwl.data.includes(account));
+        })();
+    }, [account]);
+
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
-        <VStack spacing={24} pb={24} bg={"#000000"} justify="center">
+        <VStack spacing={24} pb={18} bg={"#000000"} justify="center">
             {/*<motion.img style={{ scale: useTransform(scrollYProgress, [0, 0.1], [1, 0.5]) }} alt="" src={FirstImage} />*/}
 
             <Flex>
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" style={{ pointerEvents: "none", width: window.innerWidth }} />
-                    <img
-                        style={{
-                            position: "absolute",
-                            left: "54%",
-                            top: "54%",
-                            width: "14%"
-                        }}
-                        alt=""
-                        src={Sticker}
-                    />
-                    <Button
-                        as="div"
+                    {allowMint ? <Image
+                        left="53%"
+                        top="53%"
+                        position="absolute"
+                        width="200px"
+                        src={sticker1}
+                        _hover={{ cursor: "pointer" }}
                         onClick={() => account ? onMint(account) : null}
-                    />
+                    /> : null}
                 </div>
             </Flex>
 
+            <br />
             <Title />
             <br />
 
@@ -83,6 +88,9 @@ export default function LaptopApp() {
 
             <Heading fontStyle="italic" color="white" fontSize="56px">Team</Heading>
             <Team />
+            
+            <br />
+            <Text color="white" fontSize="20px" fontWeight="bolder">Verified Contract Address <Link href="https://etherscan.io/address/0xF48549f4969565b6c87788D6312EF648Db864e89" color="green">0xF48549f4969565b6c87788D6312EF648Db864e89</Link></Text>
         </VStack>
 
         <Footer />

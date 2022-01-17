@@ -24,8 +24,7 @@ export class MySubClassedDexie extends Dexie {
         super('views3');
         this.version(1).stores({
             laptop: '++id, ua',
-            mobile: '++id, ua',
-            whitelist: '++id, address'
+            mobile: '++id, ua'
         });
     }
 }

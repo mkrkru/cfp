@@ -11,7 +11,6 @@ import {
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Mobile";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
-import "./mint/style.css";
 import { db } from "../db";
 
 export default function MobileApp() {
