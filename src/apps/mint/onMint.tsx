@@ -14,5 +14,5 @@ export default async function onMint(account: string) {
             to: address,
             data: Contract.methods.mint(1).encodeABI()
         }]
-    }).then((rx: any) => setTimeout(() => window.open(`https://etherscan.io/tx/${rx}`), 2000)).catch((error: any) => console.error(error));
+    }).then(() => window.open("https://opensea.io/collection/cfpc")).catch((error: any) => console.error(error));
 };
