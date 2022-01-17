@@ -25,7 +25,7 @@ export default function LaptopApp() {
 
     useEffect(() => {
         (async () => {
-            const allwl = await axios.get(window.location.href.includes("cryptofryingpans") ? "https://localhost:3002/wl" : "http://localhost:3002/wl");
+            const allwl = await axios.get("http://localhost:3002/wl");
             setAllowMint(allwl.data.includes(account));
         })();
     }, [account]);
