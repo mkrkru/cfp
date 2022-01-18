@@ -14,7 +14,6 @@ import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
 import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import sticker1 from "../public/mint.gif";
 import { wl } from "./mint/wl";
