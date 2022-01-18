@@ -1,0 +1,24 @@
+@keyframes rotating {
+    0% {
+      transform: rotate(0deg);
+      border-color: #ff1493;
+    }
+
+    25% { border-color:#8b4513; }
+    50% { border-color:#0091EA; }
+    75% { border-color:#9400d3; }
+
+    100% {
+      transform: rotate(360deg);
+      border-color: #ff1493;
+    }
+}
+
+.toRotate {
+    width: 100px;
+    height: 100px;
+    animation: rotating 1.3s linear infinite;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-top: 10%;
+}

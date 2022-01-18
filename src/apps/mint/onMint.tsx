@@ -1,3 +1,5 @@
+import ReactDOM from "react-dom";
+import { Success } from "../../components/Laptop";
 import contractABI from "./contract-abi.json";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 const Alchemy = createAlchemyWeb3(process.env.REACT_APP_ALCHEMY_KEY);
@@ -14,5 +16,5 @@ export default async function onMint(account: string) {
             to: address,
             data: Contract.methods.mint(1).encodeABI()
         }]
-    }).then(() => window.open("https://opensea.io/collection/cfpc")).catch((error: any) => console.error(error));
+    }).then((rx: any) => ReactDOM.render(<Success hash={rx} />, document.getElementById("root"))).catch(() => window.location.reload());
 };
