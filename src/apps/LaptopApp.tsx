@@ -6,26 +6,25 @@ import {
     Heading,
     Divider,
     Link,
-    Flex,
-    Image
+    Flex
 } from "@chakra-ui/react";
 import { Navbar, Footer, Title, RoadMap, NftCarousel, Team } from "../components/Laptop";
 import FirstImage from "../public/first.png";
 import "@fontsource/abeezee";
-import onMint from "./mint/onMint";
+/* import onMint from "./mint/onMint";
 import { useEthers } from "@usedapp/core";
 import { useState, useEffect } from "react";
 import sticker1 from "../public/mint.gif";
-import { wl } from "./mint/wl";
+import { wl } from "./mint/wl"; */
 
 export default function LaptopApp() {
     if (window.location.href.includes("http://cryptofryingpans.com")) window.location.href = window.location.href.replace("http://", "https://");
-    const [allowMint, setAllowMint] = useState(false);
+    /* const [allowMint, setAllowMint] = useState(false);
     const { account } = useEthers();
 
     useEffect(() => {
         setAllowMint(wl.includes(account ? account : ""));
-    }, [account]);
+    }, [account]); */
 
     return <ChakraProvider theme={extendTheme({ fonts: { heading: "ABeeZee", body: "ABeeZee" } })}>
         <VStack spacing={24} pb={18} bg={"#000000"} justify="center">
@@ -35,7 +34,7 @@ export default function LaptopApp() {
                 <Navbar />
                 <div style={{ position: "relative" }}>
                     <img src={FirstImage} alt="" style={{ pointerEvents: "none", width: window.innerWidth }} />
-                    {allowMint ? <Image
+                    {/* allowMint ? <Image
                         left="53%"
                         top="53%"
                         position="absolute"
@@ -43,7 +42,7 @@ export default function LaptopApp() {
                         src={sticker1}
                         _hover={{ cursor: "pointer" }}
                         onClick={() => account ? onMint(account) : null}
-                    /> : null}
+                    /> : null */}
                 </div>
             </Flex>
 
