@@ -16,5 +16,5 @@ export default async function onMint(account: string) {
             to: address,
             data: Contract.methods.mint(1).encodeABI()
         }]
-    }).then((rx: any) => ReactDOM.render(<Success hash={rx} />, document.getElementById("root"))).catch(() => window.location.reload());
+    }).then((rx: any) => ReactDOM.render(<Success hash={rx} />, document.getElementById("root"))).catch(console.error);
 };

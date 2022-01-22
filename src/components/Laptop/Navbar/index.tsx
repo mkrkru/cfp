@@ -1,7 +1,7 @@
 import { ButtonGroup, Flex, IconButton, Link, Image } from '@chakra-ui/react';
 import icon from "../../../public/icon.png";
 import { FaDiscord, FaTwitter } from "react-icons/fa";
-// import Profile from "./children/Profile";
+import Profile from "./children/Profile";
 import opensea from "../../../public/opensea.png";
 
 export function Navbar() {
@@ -19,7 +19,7 @@ export function Navbar() {
                     <Link href="https://opensea.io/collection/cfpc" isExternal>
                         <IconButton borderRadius="xl" color="white" bg="black" aria-label="OpenSea" _hover={{ backgroundColor: "#808080" }} icon={<Image w="20px" src={opensea} />} />
                     </Link>
-                    {/* <Profile /> */}
+                    <Profile />
                 </ButtonGroup>
             </Flex>
         </Flex>
