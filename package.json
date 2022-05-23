@@ -23,7 +23,7 @@
     "@types/react-dom": "^17.0.0",
     "@usedapp/core": "^0.4.1",
     "axios": "^0.24.0",
-    "dexie": "^3.2.0",
+    "dexie": "^3.2.2",
     "dexie-react-hooks": "^1.1.1",
     "dotenv": "^10.0.0",
     "ethers": "^5.4.0",
