@@ -20,5 +20,5 @@ export function RoadMap() {
         <br />
         <br />
         <Fade right><Text color="white" fontSize="30px">Coming soon...</Text></Fade>
-    </VStack>;
+    </VStack>
 }
