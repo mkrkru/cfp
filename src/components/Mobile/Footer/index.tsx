@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import {Box, Flex, HStack, Image, VStack} from '@chakra-ui/react';
 import { Text } from '@chakra-ui/layout';
 import Icon from "../../../public/icon.png";
 
@@ -22,8 +22,14 @@ export function Footer() {
             }}>
             <img alt="" src={Icon} style={{ width: "150px", height: "150px" }} />
         </Flex>
-        <Text pt={6} fontSize='40px' textAlign='center' color="white">
-            &copy; {new Date().getFullYear()} Crypto Frying Pans
-        </Text>
+        <VStack>
+            <HStack spacing="24px">
+                <Text color="white" fontSize={40}>Developed by</Text>
+                <Image src="/twodev.png" borderRadius="full" w="130px" />
+            </HStack>
+            <Text pt={6} fontSize='40px' textAlign='center' color="white">
+                &copy; {new Date().getFullYear()} Crypto Frying Pans
+            </Text>
+        </VStack>
     </Box>
 }
